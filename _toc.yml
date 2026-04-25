@@ -1,0 +1,19 @@
+format: jb-book
+root: intro
+chapters:
+  - file: notebooks/Chapter_01_Setup_and_First_Program
+    title: "1. Setup & First Program"
+  - file: notebooks/Chapter_02_Variables_and_Data_Types
+    title: "2. Variables & Data Types"
+  - file: notebooks/Chapter_03_Conditions_and_Loops
+    title: "3. Conditions & Loops"
+  - file: notebooks/Chapter_04_Functions
+    title: "4. Functions"
+  - file: notebooks/Chapter_05_Classes_and_Objects
+    title: "5. Classes & Objects"
+  - file: notebooks/Chapter_06_Project_Walkthrough
+    title: "6. Project Walkthrough"
+  - file: notebooks/Chapter_07_The_Dashboard
+    title: "7. The Dashboard"
+  - file: notebooks/Chapter_08_Experiments
+    title: "8. Experiments"
