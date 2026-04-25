@@ -27,12 +27,17 @@ Work through the chapters **in order**. Each chapter builds on the previous one.
 
 Use the **rocket icon** (🚀) at the top of any chapter to open it as a live interactive notebook — no installation needed.
 
-```{admonition} Two Ways to Run
+```{admonition} Two Ways to Run — Read Before You Start
 :class: tip
 
-**Binder** — Click the Binder button. A live Python environment opens in your browser in about 2 minutes. No account needed.
+**Binder** — Full Jupyter Notebook interface. No account needed. Takes 2–3 minutes to start the first time. Your work is **not saved automatically** — download your notebook before closing (File → Download as → Notebook).
 
-**Google Colab** — Click the Colab button. Opens instantly. Requires a Google account.
+**Google Colab** — Opens instantly. Requires a Google account. Save your own copy before starting (File → Save a copy in Drive), otherwise your work will be lost when you close the tab.
+```
+
+```{admonition} New to Jupyter Notebooks?
+:class: note
+Start with **Chapter 0** — it teaches you how to run cells, what to do when something goes wrong, and how to save your work. Do not skip it.
 ```
 
 ---
@@ -41,6 +46,7 @@ Use the **rocket icon** (🚀) at the top of any chapter to open it as a live in
 
 | # | Title | Time |
 |---|-------|------|
+| [0](notebooks/Chapter_00_How_to_Use_This_Tutorial) | How to Use This Tutorial | 15 min |
 | [1](notebooks/Chapter_01_Setup_and_First_Program) | Setup & Your First Program | 30 min |
 | [2](notebooks/Chapter_02_Variables_and_Data_Types) | Variables & Data Types | 45 min |
 | [3](notebooks/Chapter_03_Conditions_and_Loops) | Conditions & Loops | 1 hour |
@@ -50,7 +56,7 @@ Use the **rocket icon** (🚀) at the top of any chapter to open it as a live in
 | [7](notebooks/Chapter_07_The_Dashboard) | The Dashboard | 45 min |
 | [8](notebooks/Chapter_08_Experiments) | Experiments | 1 hour |
 
-**Total: ~8 hours of self-study**
+**Total: ~8.25 hours of self-study**
 
 ---
 

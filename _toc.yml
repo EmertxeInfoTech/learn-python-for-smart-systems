@@ -1,6 +1,8 @@
 format: jb-book
 root: intro
 chapters:
+  - file: notebooks/Chapter_00_How_to_Use_This_Tutorial
+    title: "0. How to Use This Tutorial"
   - file: notebooks/Chapter_01_Setup_and_First_Program
     title: "1. Setup & First Program"
   - file: notebooks/Chapter_02_Variables_and_Data_Types
