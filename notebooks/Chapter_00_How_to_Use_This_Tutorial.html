@@ -1,0 +1,828 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Chapter 0 — How to Use This Tutorial &#8212; Learn Python for Smart Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_00_How_to_Use_This_Tutorial';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 1 — Setup &amp; Your First Program" href="Chapter_01_Setup_and_First_Program.html" />
+    <link rel="prev" title="Learn Python for Smart Systems" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Learn Python for Smart Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">0. How to Use This Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01_Setup_and_First_Program.html">1. Setup &amp; First Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02_Variables_and_Data_Types.html">2. Variables &amp; Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03_Conditions_and_Loops.html">3. Conditions &amp; Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04_Functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05_Classes_and_Objects.html">5. Classes &amp; Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06_Project_Walkthrough.html">6. Project Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07_The_Dashboard.html">7. The Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08_Experiments.html">8. Experiments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/EmertxeInfoTech/learn-python-for-smart-systems/main?urlpath=tree/./notebooks/Chapter_00_How_to_Use_This_Tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/EmertxeInfoTech/learn-python-for-smart-systems/blob/main/./notebooks/Chapter_00_How_to_Use_This_Tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Chapter_00_How_to_Use_This_Tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 0 — How to Use This Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">0.1 What is a Jupyter Notebook?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-a-cell">0.2 How to Run a Cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ways-to-run-a-cell">Other ways to run a cell</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-area">0.3 The Output Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-a-cell">0.4 Editing a Cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cells-in-order">0.5 Run Cells in Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-do-when-something-goes-wrong">0.6 What to Do When Something Goes Wrong</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cell-shows-an-error">The cell shows an error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cell-is-stuck-the-never-changes-to-a-number">The cell is stuck (the <code class="docutils literal notranslate"><span class="pre">[*]</span></code> never changes to a number)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-seems-broken-variables-have-wrong-values">Everything seems broken / variables have wrong values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-toolbar">0.7 The Toolbar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-work">0.8 Saving Your Work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-using-binder">If you are using Binder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-using-google-colab">If you are using Google Colab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">0.9 Quick Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-final-check">One Final Check</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-0-how-to-use-this-tutorial">
+<h1>Chapter 0 — How to Use This Tutorial<a class="headerlink" href="#chapter-0-how-to-use-this-tutorial" title="Permalink to this heading">#</a></h1>
+<p><strong>Time:</strong> ~15 minutes<br />
+<strong>Goal:</strong> Understand the tools you are using before writing any Python.</p>
+<p>Read this chapter completely before moving to Chapter 1.</p>
+<hr class="docutils" />
+<section id="what-is-a-jupyter-notebook">
+<h2>0.1 What is a Jupyter Notebook?<a class="headerlink" href="#what-is-a-jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<p>A Jupyter Notebook is a document that mixes two things:</p>
+<ul class="simple">
+<li><p><strong>Text</strong> — explanations, instructions, examples (like what you are reading now)</p></li>
+<li><p><strong>Code</strong> — Python programs you can run directly in the browser</p></li>
+</ul>
+<p>Each block is called a <strong>cell</strong>. There are two types:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cell Type</p></th>
+<th class="head"><p>What it contains</p></th>
+<th class="head"><p>Background colour</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Markdown cell</p></td>
+<td><p>Text, headings, tables</p></td>
+<td><p>White</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code cell</p></td>
+<td><p>Python code</p></td>
+<td><p>Light grey</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The cell below is a <strong>code cell</strong>. You can see it has a grey background and a <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> on the left side.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a code cell&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-run-a-cell">
+<h2>0.2 How to Run a Cell<a class="headerlink" href="#how-to-run-a-cell" title="Permalink to this heading">#</a></h2>
+<p>To run a code cell:</p>
+<ol class="arabic simple">
+<li><p><strong>Click on the cell</strong> to select it (a blue or green border appears around it)</p></li>
+<li><p>Press <strong><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code></strong> on your keyboard</p></li>
+</ol>
+<p>The output appears directly below the cell. The <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> on the left changes to a number like <code class="docutils literal notranslate"><span class="pre">[1]</span></code> — this is the execution count.</p>
+<p><strong>Try it now.</strong> Click the cell above and press <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code>.</p>
+<section id="other-ways-to-run-a-cell">
+<h3>Other ways to run a cell<a class="headerlink" href="#other-ways-to-run-a-cell" title="Permalink to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action</p></th>
+<th class="head"><p>How</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Run cell and move to next</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> ← use this most of the time</p></td>
+</tr>
+<tr class="row-odd"><td><p>Run cell and stay</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Run cell button</p></td>
+<td><p>Click the ▶ button in the toolbar</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Run the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I ran this cell using Shift + Enter&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output appears right here below the cell&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-output-area">
+<h2>0.3 The Output Area<a class="headerlink" href="#the-output-area" title="Permalink to this heading">#</a></h2>
+<p>When a cell runs, whatever the code prints appears in the <strong>output area</strong> directly below it. Run the cell below and observe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Line 1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Line 2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Line 3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To <strong>clear the output</strong> of a cell: right-click the cell → <strong>Clear Output</strong>.</p>
+<p>To <strong>clear all outputs</strong> in the notebook: from the menu, <strong>Kernel → Restart &amp; Clear Output</strong>.</p>
+</section>
+<section id="editing-a-cell">
+<h2>0.4 Editing a Cell<a class="headerlink" href="#editing-a-cell" title="Permalink to this heading">#</a></h2>
+<p>You can edit any code cell. Click inside it, change the code, and run it again.</p>
+<p>Try changing the message in the cell below and running it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Change this message to your name and run the cell&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-cells-in-order">
+<h2>0.5 Run Cells in Order<a class="headerlink" href="#run-cells-in-order" title="Permalink to this heading">#</a></h2>
+<p><strong>Important:</strong> Always run cells from top to bottom, in order.</p>
+<p>Each cell can use variables and functions defined in cells above it. If you skip a cell or run them out of order, you will get errors.</p>
+<p>Example — run these two cells in order:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cell 1 — defines a variable</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cell 2 — uses the variable from Cell 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature is </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>   <span class="c1"># works only if Cell 1 ran first</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you run Cell 2 without running Cell 1 first, you will see:<br />
+<code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'temperature'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code></p>
+<p>The fix: run Cell 1 first, then Cell 2.</p>
+</section>
+<section id="what-to-do-when-something-goes-wrong">
+<h2>0.6 What to Do When Something Goes Wrong<a class="headerlink" href="#what-to-do-when-something-goes-wrong" title="Permalink to this heading">#</a></h2>
+<section id="the-cell-shows-an-error">
+<h3>The cell shows an error<a class="headerlink" href="#the-cell-shows-an-error" title="Permalink to this heading">#</a></h3>
+<p>Read the last line of the error message — it tells you what went wrong. Fix the code and run the cell again.</p>
+</section>
+<section id="the-cell-is-stuck-the-never-changes-to-a-number">
+<h3>The cell is stuck (the <code class="docutils literal notranslate"><span class="pre">[*]</span></code> never changes to a number)<a class="headerlink" href="#the-cell-is-stuck-the-never-changes-to-a-number" title="Permalink to this heading">#</a></h3>
+<p>This means the code is still running or is stuck in a loop. To stop it:<br />
+<strong>Kernel → Interrupt</strong> (or press the ■ stop button in the toolbar)</p>
+</section>
+<section id="everything-seems-broken-variables-have-wrong-values">
+<h3>Everything seems broken / variables have wrong values<a class="headerlink" href="#everything-seems-broken-variables-have-wrong-values" title="Permalink to this heading">#</a></h3>
+<p>Restart the kernel and run all cells from the top:<br />
+<strong>Kernel → Restart &amp; Run All</strong></p>
+<p>This resets everything to a clean state.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell has an error on purpose — read the error message</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This line works&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">undefined_variable</span><span class="p">)</span>   <span class="c1"># NameError — this variable was never defined</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The error says <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'undefined_variable'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code>. Fix it by replacing <code class="docutils literal notranslate"><span class="pre">undefined_variable</span></code> with a string in quotes, then run again.</p>
+</section>
+</section>
+<section id="the-toolbar">
+<h2>0.7 The Toolbar<a class="headerlink" href="#the-toolbar" title="Permalink to this heading">#</a></h2>
+<p>The toolbar at the top of the notebook has the most common actions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Button</p></th>
+<th class="head"><p>What it does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>💾 (floppy disk)</p></td>
+<td><p>Save the notebook</p></td>
+</tr>
+<tr class="row-odd"><td><p>＋</p></td>
+<td><p>Add a new cell below</p></td>
+</tr>
+<tr class="row-even"><td><p>✂️</p></td>
+<td><p>Cut the selected cell</p></td>
+</tr>
+<tr class="row-odd"><td><p>▶ Run</p></td>
+<td><p>Run the selected cell</p></td>
+</tr>
+<tr class="row-even"><td><p>■ Stop</p></td>
+<td><p>Stop a running cell</p></td>
+</tr>
+<tr class="row-odd"><td><p>⟳ Restart</p></td>
+<td><p>Restart the kernel (clears all variables)</p></td>
+</tr>
+<tr class="row-even"><td><p>⏩ Run All</p></td>
+<td><p>Restart and run every cell from top to bottom</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You will use <strong>▶ Run</strong>, <strong>■ Stop</strong>, and <strong>⟳ Restart</strong> most often.</p>
+</section>
+<section id="saving-your-work">
+<h2>0.8 Saving Your Work<a class="headerlink" href="#saving-your-work" title="Permalink to this heading">#</a></h2>
+<p>This is the most important section if you are using <strong>Binder</strong> or <strong>Colab</strong>.</p>
+<hr class="docutils" />
+<section id="if-you-are-using-binder">
+<h3>If you are using Binder<a class="headerlink" href="#if-you-are-using-binder" title="Permalink to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Binder does NOT save your work automatically. If you close the tab or the session times out (after ~10 minutes of inactivity), everything you typed is lost.</p>
+</div>
+<p><strong>To save your work before closing:</strong></p>
+<ol class="arabic simple">
+<li><p>From the menu: <strong>File → Download as → Notebook (.ipynb)</strong></p></li>
+<li><p>Save the downloaded file to your computer</p></li>
+<li><p>Next time you open Binder, upload the file: <strong>File → Open</strong> → drag and drop your saved file</p></li>
+</ol>
+<p><strong>Do this at the end of every study session.</strong></p>
+</section>
+<hr class="docutils" />
+<section id="if-you-are-using-google-colab">
+<h3>If you are using Google Colab<a class="headerlink" href="#if-you-are-using-google-colab" title="Permalink to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Colab opens a temporary copy of the notebook. Changes are NOT saved back to GitHub.</p>
+</div>
+<p><strong>To save your own copy before you start:</strong></p>
+<ol class="arabic simple">
+<li><p>From the menu: <strong>File → Save a copy in Drive</strong></p></li>
+<li><p>A copy opens in your Google Drive — work from that copy</p></li>
+<li><p>Colab auto-saves to your Drive from that point on</p></li>
+</ol>
+<p><strong>Do this as soon as you open a chapter in Colab.</strong></p>
+</section>
+</section>
+<section id="quick-reference">
+<h2>0.9 Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Run a cell</p></td>
+<td><p>Click the cell → <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Stop a stuck cell</p></td>
+<td><p>Kernel → Interrupt</p></td>
+</tr>
+<tr class="row-even"><td><p>Fix broken state</p></td>
+<td><p>Kernel → Restart &amp; Run All</p></td>
+</tr>
+<tr class="row-odd"><td><p>Save work (Binder)</p></td>
+<td><p>File → Download as → Notebook (.ipynb)</p></td>
+</tr>
+<tr class="row-even"><td><p>Save work (Colab)</p></td>
+<td><p>File → Save a copy in Drive</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add a new cell</p></td>
+<td><p>Click ＋ in toolbar</p></td>
+</tr>
+<tr class="row-even"><td><p>Delete a cell</p></td>
+<td><p>Select cell → Edit → Delete Cells</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="one-final-check">
+<h2>One Final Check<a class="headerlink" href="#one-final-check" title="Permalink to this heading">#</a></h2>
+<p>Run the cell below. If you see a green success message, you are ready to start Chapter 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Notebook is working correctly!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  You are ready for Chapter 1.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Chapter 0 complete.</strong> Move on to Chapter 1 — Setup &amp; Your First Program.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Learn Python for Smart Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_01_Setup_and_First_Program.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 1 — Setup &amp; Your First Program</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">0.1 What is a Jupyter Notebook?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-a-cell">0.2 How to Run a Cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ways-to-run-a-cell">Other ways to run a cell</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-output-area">0.3 The Output Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-a-cell">0.4 Editing a Cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-cells-in-order">0.5 Run Cells in Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-do-when-something-goes-wrong">0.6 What to Do When Something Goes Wrong</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cell-shows-an-error">The cell shows an error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cell-is-stuck-the-never-changes-to-a-number">The cell is stuck (the <code class="docutils literal notranslate"><span class="pre">[*]</span></code> never changes to a number)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-seems-broken-variables-have-wrong-values">Everything seems broken / variables have wrong values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-toolbar">0.7 The Toolbar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-your-work">0.8 Saving Your Work</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-using-binder">If you are using Binder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-using-google-colab">If you are using Google Colab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">0.9 Quick Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-final-check">One Final Check</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emertxe Information Technologies
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
