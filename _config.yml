@@ -11,8 +11,10 @@ repository:
   branch: main
 
 launch_buttons:
-  binderhub_url: https://mybinder.org
-  colab_url: https://colab.research.google.com
+  notebook_interface: "classic"
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: false
 
 html:
   use_repository_button: true
