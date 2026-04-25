@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Chapter 7 — The Dashboard &#8212; Learn Python for Smart Systems</title>
   
@@ -16,50 +17,51 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_07_The_Dashboard';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,7 +69,6 @@
     <link rel="prev" title="Chapter 6 — Project Walkthrough" href="Chapter_06_Project_Walkthrough.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,8 +84,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -92,6 +104,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -99,8 +112,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,8 +129,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -145,14 +157,7 @@
     <p class="title logo__title">Learn Python for Smart Systems</p>
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Chapter_01_Setup_and_First_Program.html">1. Setup &amp; First Program</a></li>
@@ -171,14 +176,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -197,9 +197,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -261,7 +261,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -275,19 +275,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -329,12 +337,12 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-the-dashboard">
-<h1>Chapter 7 — The Dashboard<a class="headerlink" href="#chapter-7-the-dashboard" title="Link to this heading">#</a></h1>
+<h1>Chapter 7 — The Dashboard<a class="headerlink" href="#chapter-7-the-dashboard" title="Permalink to this heading">#</a></h1>
 <p><strong>Time:</strong> ~45 minutes<br />
 <strong>Goal:</strong> Understand Streamlit, run the dashboard, and map every UI element to its code.</p>
 <hr class="docutils" />
 <section id="what-is-streamlit">
-<h2>7.1 What is Streamlit?<a class="headerlink" href="#what-is-streamlit" title="Link to this heading">#</a></h2>
+<h2>7.1 What is Streamlit?<a class="headerlink" href="#what-is-streamlit" title="Permalink to this heading">#</a></h2>
 <p>Streamlit is a Python library that turns Python scripts into interactive web applications — no HTML, CSS, or JavaScript required.</p>
 <p>You write Python. Streamlit handles the web page.</p>
 <p>Install it:</p>
@@ -348,7 +356,7 @@
 <p>Your browser opens automatically at <code class="docutils literal notranslate"><span class="pre">http://localhost:8501</span></code>.</p>
 </section>
 <section id="the-8-streamlit-functions-used-in-this-project">
-<h2>7.2 The 8 Streamlit Functions Used in This Project<a class="headerlink" href="#the-8-streamlit-functions-used-in-this-project" title="Link to this heading">#</a></h2>
+<h2>7.2 The 8 Streamlit Functions Used in This Project<a class="headerlink" href="#the-8-streamlit-functions-used-in-this-project" title="Permalink to this heading">#</a></h2>
 <p>You do not need to know all of Streamlit. You only need the functions actually used in <code class="docutils literal notranslate"><span class="pre">dashboard.py</span></code>.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -398,7 +406,7 @@
 </div>
 </section>
 <section id="a-minimal-streamlit-app">
-<h2>7.3 A Minimal Streamlit App<a class="headerlink" href="#a-minimal-streamlit-app" title="Link to this heading">#</a></h2>
+<h2>7.3 A Minimal Streamlit App<a class="headerlink" href="#a-minimal-streamlit-app" title="Permalink to this heading">#</a></h2>
 <p>Create a new file <code class="docutils literal notranslate"><span class="pre">hello_streamlit.py</span></code> anywhere and paste this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
 
@@ -417,7 +425,7 @@
 <p>You will see a page with a title, two metrics, and a clickable button. Each <code class="docutils literal notranslate"><span class="pre">st.</span></code> call adds one element to the page, top to bottom.</p>
 </section>
 <section id="how-the-dashboard-auto-refreshes">
-<h2>7.4 How the Dashboard Auto-Refreshes<a class="headerlink" href="#how-the-dashboard-auto-refreshes" title="Link to this heading">#</a></h2>
+<h2>7.4 How the Dashboard Auto-Refreshes<a class="headerlink" href="#how-the-dashboard-auto-refreshes" title="Permalink to this heading">#</a></h2>
 <p>The dashboard updates itself every 2 seconds. Here is how:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="o">...</span>              <span class="c1"># 1. Run one simulation cycle</span>
@@ -430,7 +438,7 @@
 <p>Because the script restarts from scratch each time, Streamlit needs a way to keep the simulation objects alive between runs. This is what <code class="docutils literal notranslate"><span class="pre">st.session_state</span></code> does.</p>
 </section>
 <section id="st-session-state-keeping-objects-alive">
-<h2>7.5 st.session_state — Keeping Objects Alive<a class="headerlink" href="#st-session-state-keeping-objects-alive" title="Link to this heading">#</a></h2>
+<h2>7.5 st.session_state — Keeping Objects Alive<a class="headerlink" href="#st-session-state-keeping-objects-alive" title="Permalink to this heading">#</a></h2>
 <p>Normally, every variable in a Python script is destroyed when the script ends. Since <code class="docutils literal notranslate"><span class="pre">st.rerun()</span></code> restarts the script, all your objects would reset to zero every 2 seconds.</p>
 <p><code class="docutils literal notranslate"><span class="pre">st.session_state</span></code> is a special dictionary that <strong>persists across reruns</strong>. Anything you store there survives the restart.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_session</span><span class="p">():</span>
@@ -444,7 +452,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">&quot;simulator&quot;</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">st.session_state</span></code> check means: only create new objects on the <strong>first</strong> run. On every subsequent run, the existing objects are reused — so cumulative energy keeps growing, the logger keeps accumulating records, and the sensor keeps its <code class="docutils literal notranslate"><span class="pre">last_temp</span></code>.</p>
 </section>
 <section id="reading-dashboard-py-function-by-function">
-<h2>7.6 Reading <a class="reference external" href="http://dashboard.py">dashboard.py</a> — Function by Function<a class="headerlink" href="#reading-dashboard-py-function-by-function" title="Link to this heading">#</a></h2>
+<h2>7.6 Reading <a class="reference external" href="http://dashboard.py">dashboard.py</a> — Function by Function<a class="headerlink" href="#reading-dashboard-py-function-by-function" title="Permalink to this heading">#</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">src/dashboard.py</span></code>. The file has 5 functions:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -492,7 +500,7 @@
 </div>
 </section>
 <section id="what-each-ui-element-corresponds-to-in-code">
-<h2>7.7 What Each UI Element Corresponds to in Code<a class="headerlink" href="#what-each-ui-element-corresponds-to-in-code" title="Link to this heading">#</a></h2>
+<h2>7.7 What Each UI Element Corresponds to in Code<a class="headerlink" href="#what-each-ui-element-corresponds-to-in-code" title="Permalink to this heading">#</a></h2>
 <p>Run the dashboard and identify each element:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -533,7 +541,7 @@
 </div>
 </section>
 <section id="what-pandas-does-here">
-<h2>7.8 What pandas Does Here<a class="headerlink" href="#what-pandas-does-here" title="Link to this heading">#</a></h2>
+<h2>7.8 What pandas Does Here<a class="headerlink" href="#what-pandas-does-here" title="Permalink to this heading">#</a></h2>
 <p>You may notice <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code> at the top. pandas is used in only one place — to create DataFrames for the two charts:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">records</span><span class="p">],</span>
@@ -569,7 +577,7 @@
 </section>
 <hr class="docutils" />
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p><strong>Exercise 1:</strong> Run the dashboard (<code class="docutils literal notranslate"><span class="pre">streamlit</span> <span class="pre">run</span> <span class="pre">src/dashboard.py</span></code>). Move the Temperature Threshold slider. Describe what changes on the page and explain why.</p>
 <p><em>Your answer here:</em></p>
 <p><strong>Exercise 2:</strong> In <code class="docutils literal notranslate"><span class="pre">render_dashboard()</span></code>, find the line that shows the AC status as green or red. What is the condition that makes it green?</p>
@@ -651,16 +659,14 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+  <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-streamlit">7.1 What is Streamlit?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-8-streamlit-functions-used-in-this-project">7.2 The 8 Streamlit Functions Used in This Project</a></li>
@@ -695,7 +701,7 @@ By Emertxe Information Technologies
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -719,8 +725,8 @@ By Emertxe Information Technologies
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

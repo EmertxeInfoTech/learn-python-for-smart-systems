@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Chapter 6 — Project Walkthrough &#8212; Learn Python for Smart Systems</title>
   
@@ -16,50 +17,51 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_06_Project_Walkthrough';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,7 +69,6 @@
     <link rel="prev" title="Chapter 5 — Classes &amp; Objects" href="Chapter_05_Classes_and_Objects.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,8 +84,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -92,6 +104,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -99,8 +112,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,8 +129,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -145,14 +157,7 @@
     <p class="title logo__title">Learn Python for Smart Systems</p>
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Chapter_01_Setup_and_First_Program.html">1. Setup &amp; First Program</a></li>
@@ -171,14 +176,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -197,9 +197,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -261,7 +261,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -275,19 +275,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -333,12 +341,12 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-project-walkthrough">
-<h1>Chapter 6 — Project Walkthrough<a class="headerlink" href="#chapter-6-project-walkthrough" title="Link to this heading">#</a></h1>
+<h1>Chapter 6 — Project Walkthrough<a class="headerlink" href="#chapter-6-project-walkthrough" title="Permalink to this heading">#</a></h1>
 <p><strong>Time:</strong> ~1 hour<br />
 <strong>Goal:</strong> Read and understand every file in the Smart Energy Optimization System. Map what you learned in Part 1 to real code.</p>
 <hr class="docutils" />
 <section id="before-you-start">
-<h2>Before You Start<a class="headerlink" href="#before-you-start" title="Link to this heading">#</a></h2>
+<h2>Before You Start<a class="headerlink" href="#before-you-start" title="Permalink to this heading">#</a></h2>
 <p>Make sure you have the project on your machine. Open the project folder in VS Code alongside this notebook.</p>
 <p>The project structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>smart-energy-optimization-system/
@@ -355,7 +363,7 @@
 </section>
 <hr class="docutils" />
 <section id="the-pipeline">
-<h2>6.1 The Pipeline<a class="headerlink" href="#the-pipeline" title="Link to this heading">#</a></h2>
+<h2>6.1 The Pipeline<a class="headerlink" href="#the-pipeline" title="Permalink to this heading">#</a></h2>
 <p>Before reading any file, understand how data flows through the system:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SensorSimulator
     ↓  get_data()  →  {temperature, humidity, occupancy, hour}
@@ -372,7 +380,7 @@ Dashboard / Terminal
 <p>Each class does one job and passes its output to the next. Nothing does more than its job.</p>
 </section>
 <section id="config-py-all-constants-in-one-place">
-<h2>6.2 <a class="reference external" href="http://config.py">config.py</a> — All Constants in One Place<a class="headerlink" href="#config-py-all-constants-in-one-place" title="Link to this heading">#</a></h2>
+<h2>6.2 <a class="reference external" href="http://config.py">config.py</a> — All Constants in One Place<a class="headerlink" href="#config-py-all-constants-in-one-place" title="Permalink to this heading">#</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">src/config.py</span></code>. Every value here is a variable (Chapter 2) that configures the entire system.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TEMP_MIN</span>       <span class="o">=</span> <span class="mf">18.0</span>
 <span class="n">TEMP_MAX</span>       <span class="o">=</span> <span class="mf">40.0</span>
@@ -395,7 +403,7 @@ Each file starts with lines like:</p>
 <p>This makes those constants available inside that file. You will see this pattern in every source file.</p>
 </section>
 <section id="sensor-py-sensorsimulator">
-<h2>6.3 <a class="reference external" href="http://sensor.py">sensor.py</a> — SensorSimulator<a class="headerlink" href="#sensor-py-sensorsimulator" title="Link to this heading">#</a></h2>
+<h2>6.3 <a class="reference external" href="http://sensor.py">sensor.py</a> — SensorSimulator<a class="headerlink" href="#sensor-py-sensorsimulator" title="Permalink to this heading">#</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">src/sensor.py</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SensorSimulator</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -431,7 +439,7 @@ Each file starts with lines like:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">occupancy</span></code> uses <code class="docutils literal notranslate"><span class="pre">weights=[70,</span> <span class="pre">30]</span></code> — room is occupied 70% of the time, empty 30%</p></li>
 </ol>
 <section id="what-is-a-dictionary">
-<h3>What is a Dictionary?<a class="headerlink" href="#what-is-a-dictionary" title="Link to this heading">#</a></h3>
+<h3>What is a Dictionary?<a class="headerlink" href="#what-is-a-dictionary" title="Permalink to this heading">#</a></h3>
 <p>A dictionary stores data as <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs, like a real dictionary stores <code class="docutils literal notranslate"><span class="pre">word:</span> <span class="pre">definition</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -453,7 +461,7 @@ Each file starts with lines like:</p>
 </section>
 </section>
 <section id="engine-py-decisionengine">
-<h2>6.4 <a class="reference external" href="http://engine.py">engine.py</a> — DecisionEngine<a class="headerlink" href="#engine-py-decisionengine" title="Link to this heading">#</a></h2>
+<h2>6.4 <a class="reference external" href="http://engine.py">engine.py</a> — DecisionEngine<a class="headerlink" href="#engine-py-decisionengine" title="Permalink to this heading">#</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">src/engine.py</span></code>.</p>
 <p>This class applies 5 rules in priority order to decide whether AC should be ON or OFF:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DecisionEngine</span><span class="p">:</span>
@@ -492,7 +500,7 @@ Instead of a single threshold (AC ON above 26°C, OFF below 26°C), the engine u
 <p><strong><code class="docutils literal notranslate"><span class="pre">last_reason</span></code></strong> stores a human-readable explanation of why the last decision was made. The dashboard displays this.</p>
 </section>
 <section id="calculator-py-energycalculator">
-<h2>6.5 <a class="reference external" href="http://calculator.py">calculator.py</a> — EnergyCalculator<a class="headerlink" href="#calculator-py-energycalculator" title="Link to this heading">#</a></h2>
+<h2>6.5 <a class="reference external" href="http://calculator.py">calculator.py</a> — EnergyCalculator<a class="headerlink" href="#calculator-py-energycalculator" title="Permalink to this heading">#</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">src/calculator.py</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">EnergyCalculator</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -539,7 +547,7 @@ Instead of a single threshold (AC ON above 26°C, OFF below 26°C), the engine u
 </div>
 </section>
 <section id="logger-py-datalogger">
-<h2>6.6 <a class="reference external" href="http://logger.py">logger.py</a> — DataLogger<a class="headerlink" href="#logger-py-datalogger" title="Link to this heading">#</a></h2>
+<h2>6.6 <a class="reference external" href="http://logger.py">logger.py</a> — DataLogger<a class="headerlink" href="#logger-py-datalogger" title="Permalink to this heading">#</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">src/logger.py</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataLogger</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -558,7 +566,7 @@ Instead of a single threshold (AC ON above 26°C, OFF below 26°C), the engine u
 <p>This is the simplest class in the project. A list (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) that grows with every cycle. The dashboard reads from it using <code class="docutils literal notranslate"><span class="pre">get_latest()</span></code>.</p>
 </section>
 <section id="main-py-how-everything-connects">
-<h2>6.7 <a class="reference external" href="http://main.py">main.py</a> — How Everything Connects<a class="headerlink" href="#main-py-how-everything-connects" title="Link to this heading">#</a></h2>
+<h2>6.7 <a class="reference external" href="http://main.py">main.py</a> — How Everything Connects<a class="headerlink" href="#main-py-how-everything-connects" title="Permalink to this heading">#</a></h2>
 <p>Open <code class="docutils literal notranslate"><span class="pre">src/main.py</span></code>. This is the entry point for the terminal runner. Read it alongside this explanation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Create one instance of each class</span>
@@ -583,7 +591,7 @@ Instead of a single threshold (AC ON above 26°C, OFF below 26°C), the engine u
 The sensor receives <code class="docutils literal notranslate"><span class="pre">engine.ac_state</span></code> — the current AC state — so it knows to drift temperature up or down in the next cycle. This creates a realistic simulation where AC actually affects temperature.</p>
 </section>
 <section id="run-the-terminal-simulation">
-<h2>6.8 Run the Terminal Simulation<a class="headerlink" href="#run-the-terminal-simulation" title="Link to this heading">#</a></h2>
+<h2>6.8 Run the Terminal Simulation<a class="headerlink" href="#run-the-terminal-simulation" title="Permalink to this heading">#</a></h2>
 <p>Open your terminal. Navigate to the project folder:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>path/to/smart-energy-optimization-system
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
@@ -611,7 +619,7 @@ python3<span class="w"> </span>src/main.py
 </section>
 <hr class="docutils" />
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p><strong>Exercise 1:</strong> In <code class="docutils literal notranslate"><span class="pre">engine.py</span></code>, what are the exact temperature values where AC turns ON and OFF with the default settings (<code class="docutils literal notranslate"><span class="pre">threshold=26.0</span></code>, <code class="docutils literal notranslate"><span class="pre">buffer=1.5</span></code>)? Write the numbers, do not guess.</p>
 <p><em>Your answer here:</em><br />
 AC turns ON when temperature &gt; ___°C<br />
@@ -680,16 +688,14 @@ AC turns OFF when temperature &lt; ___°C</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+  <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-start">Before You Start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pipeline">6.1 The Pipeline</a></li>
@@ -728,7 +734,7 @@ By Emertxe Information Technologies
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -752,8 +758,8 @@ By Emertxe Information Technologies
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
