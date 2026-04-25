@@ -317,17 +317,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-online">Read Online</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-this-is-for">Who This Is For</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-learn">What You Will Learn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-tutorial">How to Use This Tutorial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-python">Step 1 — Install Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-jupyter">Step 2 — Install Jupyter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-open-the-tutorial">Step 3 — Open the tutorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-get-the-project-files">Step 4 — Get the project files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapters">Chapters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-tutorial">How to Use This Tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-read-online-recommended">Option 1 — Read Online (recommended)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-run-locally">Option 2 — Run Locally</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapters">Chapters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">Cheat Sheet</a></li>
 </ul>
             </nav>
@@ -342,7 +341,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="learn-python-for-smart-systems">
 <h1>Learn Python for Smart Systems<a class="headerlink" href="#learn-python-for-smart-systems" title="Permalink to this heading">#</a></h1>
-<p>A self-learning tutorial that teaches Python by building understanding of a real IoT project — a Smart Energy Optimization System that simulates environmental sensors and controls virtual HVAC devices.</p>
+<p>A self-learning tutorial that teaches Python from zero by building understanding of a real IoT project — a Smart Energy Optimization System that simulates environmental sensors and controls virtual HVAC devices.</p>
+<p><strong>Developed by:</strong> Emertxe Information Technologies</p>
+<hr class="docutils" />
+<section id="read-online">
+<h2>Read Online<a class="headerlink" href="#read-online" title="Permalink to this heading">#</a></h2>
+<p><strong><a class="reference external" href="https://emertxeinfotech.github.io/learn-python-for-smart-systems/">emertxeinfotech.github.io/learn-python-for-smart-systems</a></strong></p>
+<p>No installation required. Open any chapter and click the 🚀 launch button to run it live in Binder or Google Colab.</p>
+</section>
+<hr class="docutils" />
 <section id="who-this-is-for">
 <h2>Who This Is For<a class="headerlink" href="#who-this-is-for" title="Permalink to this heading">#</a></h2>
 <p>Complete beginners. No prior programming experience required.</p>
@@ -356,44 +363,11 @@ document.write(`
 <li><p>How to run a Streamlit web dashboard</p></li>
 </ul>
 </section>
-<section id="how-to-use-this-tutorial">
-<h2>How to Use This Tutorial<a class="headerlink" href="#how-to-use-this-tutorial" title="Permalink to this heading">#</a></h2>
-<p>Work through the notebooks in order. Each chapter builds on the previous one.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Part 1 — Python Fundamentals (Chapters 1–5)
-Part 2 — The Project       (Chapters 6–8)
-</pre></div>
-</div>
-<p>Do not skip chapters. Do not skip exercises.</p>
+<section id="the-project">
+<h2>The Project<a class="headerlink" href="#the-project" title="Permalink to this heading">#</a></h2>
+<p>From Chapter 6 onward, the tutorial uses the <a class="reference external" href="https://github.com/EmertxeInfoTech/smart-energy-optimization-system">Smart Energy Optimization System</a> as the hands-on codebase.</p>
 </section>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
-<section id="step-1-install-python">
-<h3>Step 1 — Install Python<a class="headerlink" href="#step-1-install-python" title="Permalink to this heading">#</a></h3>
-<p>Download from <a class="reference external" href="https://python.org">https://python.org</a> → choose version 3.10 or higher → install with default settings.</p>
-<p>Verify:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
-</pre></div>
-</div>
-</section>
-<section id="step-2-install-jupyter">
-<h3>Step 2 — Install Jupyter<a class="headerlink" href="#step-2-install-jupyter" title="Permalink to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>notebook
-</pre></div>
-</div>
-</section>
-<section id="step-3-open-the-tutorial">
-<h3>Step 3 — Open the tutorial<a class="headerlink" href="#step-3-open-the-tutorial" title="Permalink to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>learn-python-for-smart-systems
-jupyter<span class="w"> </span>notebook
-</pre></div>
-</div>
-<p>Your browser will open. Click on the <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> folder and start with <code class="docutils literal notranslate"><span class="pre">Chapter_01</span></code>.</p>
-</section>
-<section id="step-4-get-the-project-files">
-<h3>Step 4 — Get the project files<a class="headerlink" href="#step-4-get-the-project-files" title="Permalink to this heading">#</a></h3>
-<p>Download or clone the Smart Energy Optimization System project. You will need it from Chapter 6 onward.</p>
-</section>
-</section>
+<hr class="docutils" />
 <section id="chapters">
 <h2>Chapters<a class="headerlink" href="#chapters" title="Permalink to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -404,46 +378,83 @@ jupyter<span class="w"> </span>notebook
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>1</p></td>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>How to Use This Tutorial</p></td>
+<td><p>15 min</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
 <td><p>Setup &amp; Your First Program</p></td>
 <td><p>30 min</p></td>
 </tr>
-<tr class="row-odd"><td><p>2</p></td>
+<tr class="row-even"><td><p>2</p></td>
 <td><p>Variables &amp; Data Types</p></td>
 <td><p>45 min</p></td>
 </tr>
-<tr class="row-even"><td><p>3</p></td>
+<tr class="row-odd"><td><p>3</p></td>
 <td><p>Conditions &amp; Loops</p></td>
 <td><p>1 hour</p></td>
 </tr>
-<tr class="row-odd"><td><p>4</p></td>
+<tr class="row-even"><td><p>4</p></td>
 <td><p>Functions</p></td>
 <td><p>1 hour</p></td>
 </tr>
-<tr class="row-even"><td><p>5</p></td>
+<tr class="row-odd"><td><p>5</p></td>
 <td><p>Classes &amp; Objects</p></td>
 <td><p>2 hours</p></td>
 </tr>
-<tr class="row-odd"><td><p>6</p></td>
+<tr class="row-even"><td><p>6</p></td>
 <td><p>Project Walkthrough</p></td>
 <td><p>1 hour</p></td>
 </tr>
-<tr class="row-even"><td><p>7</p></td>
+<tr class="row-odd"><td><p>7</p></td>
 <td><p>The Dashboard</p></td>
 <td><p>45 min</p></td>
 </tr>
-<tr class="row-odd"><td><p>8</p></td>
+<tr class="row-even"><td><p>8</p></td>
 <td><p>Experiments</p></td>
 <td><p>1 hour</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Total: ~8 hours of self-study</strong></p>
+<p><strong>Total: ~8.25 hours of self-study</strong></p>
 </section>
+<hr class="docutils" />
+<section id="how-to-use-this-tutorial">
+<h2>How to Use This Tutorial<a class="headerlink" href="#how-to-use-this-tutorial" title="Permalink to this heading">#</a></h2>
+<p>Work through the chapters in order. Each chapter builds on the previous one. Do not skip chapters. Do not skip exercises.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Part 1 — Python Fundamentals (Chapters 0–5)
+Part 2 — The Project         (Chapters 6–8)
+</pre></div>
+</div>
+<section id="option-1-read-online-recommended">
+<h3>Option 1 — Read Online (recommended)<a class="headerlink" href="#option-1-read-online-recommended" title="Permalink to this heading">#</a></h3>
+<p>Visit <strong><a class="reference external" href="https://emertxeinfotech.github.io/learn-python-for-smart-systems/">emertxeinfotech.github.io/learn-python-for-smart-systems</a></strong> and click the 🚀 button on any chapter page.</p>
+<ul class="simple">
+<li><p><strong>Binder</strong> — full Jupyter interface, no account needed, 2–3 min first load</p></li>
+<li><p><strong>Google Colab</strong> — instant start, requires a Google account</p></li>
+</ul>
+</section>
+<section id="option-2-run-locally">
+<h3>Option 2 — Run Locally<a class="headerlink" href="#option-2-run-locally" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Jupyter</span>
+pip<span class="w"> </span>install<span class="w"> </span>notebook
+
+<span class="c1"># Clone this repo</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/EmertxeInfoTech/learn-python-for-smart-systems.git
+<span class="nb">cd</span><span class="w"> </span>learn-python-for-smart-systems
+
+<span class="c1"># Open the tutorial</span>
+jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+<p>Your browser will open. Navigate to the <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> folder and start with <code class="docutils literal notranslate"><span class="pre">Chapter_00</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
 <section id="cheat-sheet">
 <h2>Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this heading">#</a></h2>
-<p>A one-page Python reference is available in <code class="docutils literal notranslate"><span class="pre">cheatsheet.md</span></code>. Use it when you forget syntax — do not use it to skip chapters.</p>
+<p>A one-page Python reference is in <a class="reference internal" href="cheatsheet.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">cheatsheet.md</span></code></span></a>. Use it when you forget syntax — do not use it to skip chapters.</p>
 </section>
 </section>
 
@@ -493,17 +504,16 @@ jupyter<span class="w"> </span>notebook
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-online">Read Online</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-this-is-for">Who This Is For</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-will-learn">What You Will Learn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-tutorial">How to Use This Tutorial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-python">Step 1 — Install Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-jupyter">Step 2 — Install Jupyter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-open-the-tutorial">Step 3 — Open the tutorial</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-get-the-project-files">Step 4 — Get the project files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapters">Chapters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-tutorial">How to Use This Tutorial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-read-online-recommended">Option 1 — Read Online (recommended)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-run-locally">Option 2 — Run Locally</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapters">Chapters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">Cheat Sheet</a></li>
 </ul>
   </nav></div>
