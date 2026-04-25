@@ -23,7 +23,7 @@ jobs:
           cache: pip
 
       - name: Install jupyter-book
-        run: pip install jupyter-book
+        run: pip install "jupyter-book<2"
 
       - name: Build the book
         run: jupyter-book build .
