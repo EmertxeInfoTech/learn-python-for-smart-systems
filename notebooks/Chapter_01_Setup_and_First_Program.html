@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 1 — Setup &amp; Your First Program &#8212; Learn Python for Smart Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_01_Setup_and_First_Program';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 2 — Variables &amp; Data Types" href="Chapter_02_Variables_and_Data_Types.html" />
+    <link rel="prev" title="Learn Python for Smart Systems" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Learn Python for Smart Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Setup &amp; First Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02_Variables_and_Data_Types.html">2. Variables &amp; Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03_Conditions_and_Loops.html">3. Conditions &amp; Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04_Functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05_Classes_and_Objects.html">5. Classes &amp; Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06_Project_Walkthrough.html">6. Project Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07_The_Dashboard.html">7. The Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08_Experiments.html">8. Experiments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Chapter_01_Setup_and_First_Program.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1 — Setup & Your First Program</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">1.1 What is Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-terminal">1.2 What is a Terminal?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">1.3 Installing Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">1.4 Installing Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-first-program">1.5 Your First Program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.6 Python as a Calculator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-when-code-has-an-error">1.7 What Happens When Code Has an Error?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-the-project">1.8 Connection to the Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-setup-your-first-program">
+<h1>Chapter 1 — Setup &amp; Your First Program<a class="headerlink" href="#chapter-1-setup-your-first-program" title="Link to this heading">#</a></h1>
+<p><strong>Time:</strong> ~30 minutes<br />
+<strong>Goal:</strong> Have Python installed, understand what a terminal is, and run your first program.</p>
+<hr class="docutils" />
+<section id="what-is-python">
+<h2>1.1 What is Python?<a class="headerlink" href="#what-is-python" title="Link to this heading">#</a></h2>
+<p>Python is a programming language. A programming language lets you give instructions to a computer in a way both you and the computer can understand.</p>
+<p>You write instructions in a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file (or in a notebook like this one). Python reads those instructions and executes them.</p>
+<p>Python is used in:</p>
+<ul class="simple">
+<li><p>Web development</p></li>
+<li><p>Data science and AI</p></li>
+<li><p>IoT and embedded systems</p></li>
+<li><p>Automation</p></li>
+</ul>
+<p>This tutorial uses Python to simulate a smart energy system — sensors, decision logic, and a live dashboard.</p>
+</section>
+<section id="what-is-a-terminal">
+<h2>1.2 What is a Terminal?<a class="headerlink" href="#what-is-a-terminal" title="Link to this heading">#</a></h2>
+<p>A terminal (also called command line or shell) is a text-based interface to your computer. Instead of clicking, you type commands.</p>
+<p><strong>On Mac:</strong> Press <code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Space</span></code>, type <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>, press Enter.<br />
+<strong>On Windows:</strong> Press <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">+</span> <span class="pre">R</span></code>, type <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, press Enter.</p>
+<p>Common commands you will use:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>What it does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code></p></td>
+<td><p>Check which Python version is installed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;name&gt;</span></code></p></td>
+<td><p>Install a Python package</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">foldername</span></code></p></td>
+<td><p>Move into a folder</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> (Mac) / <code class="docutils literal notranslate"><span class="pre">dir</span></code> (Windows)</p></td>
+<td><p>List files in current folder</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">filename.py</span></code></p></td>
+<td><p>Run a Python file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="installing-python">
+<h2>1.3 Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://python.org">https://python.org</a></p></li>
+<li><p>Click <strong>Download Python 3.x</strong> (use version 3.10 or higher)</p></li>
+<li><p>Run the installer</p>
+<ul class="simple">
+<li><p><strong>Important on Windows:</strong> Check the box that says <strong>“Add Python to PATH”</strong> before clicking Install</p></li>
+</ul>
+</li>
+</ol>
+<p>After installation, open your terminal and type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>You should see something like: <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11.4</span></code><br />
+If you see an error, Python did not install correctly — repeat the steps above.</p>
+</section>
+<section id="installing-jupyter-notebook">
+<h2>1.4 Installing Jupyter Notebook<a class="headerlink" href="#installing-jupyter-notebook" title="Link to this heading">#</a></h2>
+<p>Jupyter Notebook is what you are reading right now. It lets you write and run Python code in your browser, one block at a time.</p>
+<p>In your terminal, type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>notebook
+</pre></div>
+</div>
+<p>Then to open it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+<p>Your browser will open with a file explorer. Navigate to this tutorial folder and open a chapter.</p>
+</section>
+<section id="your-first-program">
+<h2>1.5 Your First Program<a class="headerlink" href="#your-first-program" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">print()</span></code> is the most basic Python instruction. It displays text on the screen.</p>
+<p>Click on the code cell below and press <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> to run it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should see <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> appear below the cell. That is Python executing your instruction.</p>
+<p>Now try printing your own name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is Student&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="python-as-a-calculator">
+<h2>1.6 Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Link to this heading">#</a></h2>
+<p>Python can do arithmetic. Try running these:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">30</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">100</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are the four basic operators: <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> <code class="docutils literal notranslate"><span class="pre">*</span></code> <code class="docutils literal notranslate"><span class="pre">/</span></code></p>
+<p>Two more useful ones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># 10 to the power of 2 = 100</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>    <span class="c1"># remainder when 10 is divided by 3 = 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol starts a <strong>comment</strong>. Python ignores everything after <code class="docutils literal notranslate"><span class="pre">#</span></code> on the same line. Comments are notes for humans reading the code.</p>
+</section>
+<section id="what-happens-when-code-has-an-error">
+<h2>1.7 What Happens When Code Has an Error?<a class="headerlink" href="#what-happens-when-code-has-an-error" title="Link to this heading">#</a></h2>
+<p>Errors are normal. Every programmer sees them daily. Run the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This line works&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">This</span> <span class="n">line</span> <span class="n">has</span> <span class="n">no</span> <span class="n">quotes</span><span class="p">)</span>   <span class="c1"># SyntaxError — Python does not understand this</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python will show a <strong>SyntaxError</strong>. Read error messages carefully — they tell you what went wrong and on which line.</p>
+<p>Fix the error in the cell above and run it again.</p>
+</section>
+<section id="connection-to-the-project">
+<h2>1.8 Connection to the Project<a class="headerlink" href="#connection-to-the-project" title="Link to this heading">#</a></h2>
+<p>The Smart Energy Optimization System uses <code class="docutils literal notranslate"><span class="pre">print()</span></code> in <code class="docutils literal notranslate"><span class="pre">src/main.py</span></code> to display sensor readings and device status in the terminal.</p>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">src/main.py</span></code>, every line of output you see is a <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement executing.</p>
+<p>That is all <code class="docutils literal notranslate"><span class="pre">print()</span></code> does — and it is used throughout real projects.</p>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p>Complete all three before moving to Chapter 2.</p>
+<p><strong>Exercise 1:</strong> Print the name of your city.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Calculate and print: if a room uses 1.5 kW of power for 3 hours, how many kWh of energy is consumed? (Hint: Energy = Power × Time)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Write two print statements and a comment explaining what they do.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Chapter 1 complete.</strong> Move on to Chapter 2 — Variables &amp; Data Types.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Learn Python for Smart Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_02_Variables_and_Data_Types.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 2 — Variables &amp; Data Types</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-python">1.1 What is Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-terminal">1.2 What is a Terminal?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">1.3 Installing Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">1.4 Installing Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-first-program">1.5 Your First Program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-as-a-calculator">1.6 Python as a Calculator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-when-code-has-an-error">1.7 What Happens When Code Has an Error?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-the-project">1.8 Connection to the Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emertxe Information Technologies
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

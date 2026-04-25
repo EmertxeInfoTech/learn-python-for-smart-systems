@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 4 — Functions &#8212; Learn Python for Smart Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_04_Functions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 5 — Classes &amp; Objects" href="Chapter_05_Classes_and_Objects.html" />
+    <link rel="prev" title="Chapter 3 — Conditions &amp; Loops" href="Chapter_03_Conditions_and_Loops.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Learn Python for Smart Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01_Setup_and_First_Program.html">1. Setup &amp; First Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02_Variables_and_Data_Types.html">2. Variables &amp; Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03_Conditions_and_Loops.html">3. Conditions &amp; Loops</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05_Classes_and_Objects.html">5. Classes &amp; Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06_Project_Walkthrough.html">6. Project Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07_The_Dashboard.html">7. The Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08_Experiments.html">8. Experiments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Chapter_04_Functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 4 — Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-functions">4.1 Why Functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function">4.2 Defining a Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-vs-arguments">4.3 Parameters vs Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-without-a-return-value">4.4 Functions Without a Return Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter-values">4.5 Default Parameter Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-calling-other-functions">4.6 Functions Calling Other Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">4.7 Variable Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-the-project">4.8 Connection to the Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-functions">
+<h1>Chapter 4 — Functions<a class="headerlink" href="#chapter-4-functions" title="Link to this heading">#</a></h1>
+<p><strong>Time:</strong> ~1 hour<br />
+<strong>Goal:</strong> Write reusable blocks of code. Every file in this project is built on functions.</p>
+<hr class="docutils" />
+<section id="why-functions">
+<h2>4.1 Why Functions?<a class="headerlink" href="#why-functions" title="Link to this heading">#</a></h2>
+<p>Imagine you need to calculate energy consumed in 10 different places in your code. Without functions, you copy-paste the formula 10 times. If the formula changes, you update it 10 times and likely miss one.</p>
+<p>With a function, you write the formula once, give it a name, and call it wherever needed. When the formula changes, you fix it in one place.</p>
+<p>Functions let you:</p>
+<ul class="simple">
+<li><p><strong>Reuse</strong> code without repeating it</p></li>
+<li><p><strong>Name</strong> a concept so code reads like plain English</p></li>
+<li><p><strong>Isolate</strong> one job into one place — easier to test and fix</p></li>
+</ul>
+</section>
+<section id="defining-a-function">
+<h2>4.2 Defining a Function<a class="headerlink" href="#defining-a-function" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">):</span>
+    <span class="c1"># code here</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> — keyword that starts a function definition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function_name</span></code> — the name you give it (same rules as variables)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code> — inputs the function receives (optional)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code> — sends a value back to whoever called the function (optional)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_energy</span><span class="p">(</span><span class="n">power_kw</span><span class="p">,</span> <span class="n">hours</span><span class="p">):</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">power_kw</span> <span class="o">*</span> <span class="n">hours</span>
+    <span class="k">return</span> <span class="n">energy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Defining a function does not run it. You must <strong>call</strong> it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">calculate_energy</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>   <span class="c1"># 3.0</span>
+
+<span class="n">result2</span> <span class="o">=</span> <span class="n">calculate_energy</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>  <span class="c1"># 6.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parameters-vs-arguments">
+<h2>4.3 Parameters vs Arguments<a class="headerlink" href="#parameters-vs-arguments" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Parameter</strong> — the name in the function definition: <code class="docutils literal notranslate"><span class="pre">power_kw</span></code>, <code class="docutils literal notranslate"><span class="pre">hours</span></code></p></li>
+<li><p><strong>Argument</strong> — the actual value you pass when calling: <code class="docutils literal notranslate"><span class="pre">1.5</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+</ul>
+<p>They are often called the same thing informally. Just know: parameters are placeholders, arguments are the real values.</p>
+</section>
+<section id="functions-without-a-return-value">
+<h2>4.4 Functions Without a Return Value<a class="headerlink" href="#functions-without-a-return-value" title="Link to this heading">#</a></h2>
+<p>A function does not have to return anything. It can just perform an action:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_sensor_reading</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">humidity</span><span class="p">,</span> <span class="n">is_occupied</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature : </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Humidity    : </span><span class="si">{</span><span class="n">humidity</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Occupied    : </span><span class="si">{</span><span class="n">is_occupied</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="n">print_sensor_reading</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mf">65.4</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">print_sensor_reading</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="default-parameter-values">
+<h2>4.5 Default Parameter Values<a class="headerlink" href="#default-parameter-values" title="Link to this heading">#</a></h2>
+<p>You can give parameters a default value. If the caller does not provide that argument, the default is used:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_energy</span><span class="p">(</span><span class="n">power_kw</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">power_kw</span> <span class="o">*</span> <span class="n">hours</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_energy</span><span class="p">(</span><span class="mf">1.5</span><span class="p">))</span>     <span class="c1"># uses default hours=1 → 1.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_energy</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># overrides default → 4.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-calling-other-functions">
+<h2>4.6 Functions Calling Other Functions<a class="headerlink" href="#functions-calling-other-functions" title="Link to this heading">#</a></h2>
+<p>Functions can call other functions. This is how the pipeline in the project works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_energy</span><span class="p">(</span><span class="n">power_kw</span><span class="p">,</span> <span class="n">hours</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">power_kw</span> <span class="o">*</span> <span class="n">hours</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">should_ac_be_on</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">is_occupied</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">is_occupied</span> <span class="ow">and</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_one_cycle</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">humidity</span><span class="p">,</span> <span class="n">is_occupied</span><span class="p">):</span>
+    <span class="n">ac_on</span> <span class="o">=</span> <span class="n">should_ac_be_on</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">is_occupied</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ac_on</span><span class="p">:</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="n">calculate_energy</span><span class="p">(</span><span class="n">power_kw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="n">ac_on</span><span class="p">,</span> <span class="n">energy</span>
+
+
+<span class="c1"># Run one cycle</span>
+<span class="n">ac_status</span><span class="p">,</span> <span class="n">energy_used</span> <span class="o">=</span> <span class="n">run_one_cycle</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span> <span class="n">humidity</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">is_occupied</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AC: </span><span class="si">{</span><span class="n">ac_status</span><span class="si">}</span><span class="s2">  |  Energy: </span><span class="si">{</span><span class="n">energy_used</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> kWh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variable-scope">
+<h2>4.7 Variable Scope<a class="headerlink" href="#variable-scope" title="Link to this heading">#</a></h2>
+<p>Variables created inside a function <strong>only exist inside that function</strong>. They are called <strong>local variables</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_energy</span><span class="p">(</span><span class="n">power_kw</span><span class="p">,</span> <span class="n">hours</span><span class="p">):</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">power_kw</span> <span class="o">*</span> <span class="n">hours</span>   <span class="c1"># &#39;energy&#39; is local to this function</span>
+    <span class="k">return</span> <span class="n">energy</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">calculate_energy</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>   <span class="c1"># 3.0</span>
+
+<span class="c1"># print(energy)  # This would cause a NameError — &#39;energy&#39; does not exist here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="connection-to-the-project">
+<h2>4.8 Connection to the Project<a class="headerlink" href="#connection-to-the-project" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">src/calculator.py</span></code>. The <code class="docutils literal notranslate"><span class="pre">EnergyCalculator</span></code> class has a method called <code class="docutils literal notranslate"><span class="pre">calculate_cycle_energy</span></code>. A method is just a function that belongs to a class (you will learn classes in Chapter 5).</p>
+<p>It does exactly this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_cycle_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ac_on</span><span class="p">,</span> <span class="n">fan_on</span><span class="p">,</span> <span class="n">duration_hours</span><span class="p">):</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">ac_on</span><span class="p">:</span>
+        <span class="n">energy</span> <span class="o">+=</span> <span class="n">AC_POWER_KW</span> <span class="o">*</span> <span class="n">duration_hours</span>
+    <span class="k">if</span> <span class="n">fan_on</span><span class="p">:</span>
+        <span class="n">energy</span> <span class="o">+=</span> <span class="n">FAN_POWER_KW</span> <span class="o">*</span> <span class="n">duration_hours</span>
+    <span class="k">return</span> <span class="n">energy</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>It takes device states and duration as parameters</p></li>
+<li><p>It calculates and returns energy</p></li>
+<li><p>Everything else in the system calls this one function when it needs an energy value</p></li>
+</ul>
+<p>This is exactly what you built in section 4.6.</p>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p><strong>Exercise 1:</strong> Write a function <code class="docutils literal notranslate"><span class="pre">get_ac_decision(temperature,</span> <span class="pre">is_occupied)</span></code> that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the AC should be on, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. Use a threshold of 28°C. Test it with 4 different combinations of temperature and occupancy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Write a function <code class="docutils literal notranslate"><span class="pre">print_cycle_report(cycle_number,</span> <span class="pre">temperature,</span> <span class="pre">ac_on,</span> <span class="pre">energy)</span></code> that prints a nicely formatted one-line summary of one simulation cycle. Then call it 5 times with different values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Combine Exercises 1 and 2 with a loop. Run a simulation of 8 cycles using <code class="docutils literal notranslate"><span class="pre">random.randint</span></code> for temperature and <code class="docutils literal notranslate"><span class="pre">random.choice([True,</span> <span class="pre">False])</span></code> for occupancy. Call your functions inside the loop. Track and print total energy at the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Chapter 4 complete.</strong> Move on to Chapter 5 — Classes &amp; Objects.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_03_Conditions_and_Loops.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 3 — Conditions &amp; Loops</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_05_Classes_and_Objects.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 5 — Classes &amp; Objects</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-functions">4.1 Why Functions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function">4.2 Defining a Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-vs-arguments">4.3 Parameters vs Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-without-a-return-value">4.4 Functions Without a Return Value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter-values">4.5 Default Parameter Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-calling-other-functions">4.6 Functions Calling Other Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">4.7 Variable Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-the-project">4.8 Connection to the Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emertxe Information Technologies
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

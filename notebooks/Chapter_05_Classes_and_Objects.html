@@ -1,0 +1,732 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 5 — Classes &amp; Objects &#8212; Learn Python for Smart Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_05_Classes_and_Objects';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 6 — Project Walkthrough" href="Chapter_06_Project_Walkthrough.html" />
+    <link rel="prev" title="Chapter 4 — Functions" href="Chapter_04_Functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Learn Python for Smart Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01_Setup_and_First_Program.html">1. Setup &amp; First Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02_Variables_and_Data_Types.html">2. Variables &amp; Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03_Conditions_and_Loops.html">3. Conditions &amp; Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04_Functions.html">4. Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Classes &amp; Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06_Project_Walkthrough.html">6. Project Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07_The_Dashboard.html">7. The Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08_Experiments.html">8. Experiments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Chapter_05_Classes_and_Objects.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 5 — Classes & Objects</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-classes">5.1 Why Classes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-class-the-simplest-case">5.2 Defining a Class — The Simplest Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-methods">5.3 Adding Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-instances">5.4 Multiple Instances</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-state-across-method-calls">5.5 Storing State Across Method Calls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-realistic-mini-project">5.6 A Realistic Mini-Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-real-sensorsimulator">5.7 Reading the Real SensorSimulator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-5-classes-objects">
+<h1>Chapter 5 — Classes &amp; Objects<a class="headerlink" href="#chapter-5-classes-objects" title="Link to this heading">#</a></h1>
+<p><strong>Time:</strong> ~2 hours<br />
+<strong>Goal:</strong> Understand classes and objects. Every file in the project defines one class. This is the most important chapter.</p>
+<hr class="docutils" />
+<section id="why-classes">
+<h2>5.1 Why Classes?<a class="headerlink" href="#why-classes" title="Link to this heading">#</a></h2>
+<p>As programs grow, you end up with many related variables and functions. For example, to simulate a sensor you might have:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sensor_temperature</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">sensor_humidity</span> <span class="o">=</span> <span class="mf">65.4</span>
+<span class="n">sensor_is_occupied</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_temperature</span><span class="p">():</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_humidity</span><span class="p">():</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_occupancy</span><span class="p">():</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>What if you have 10 sensors? You need 30 variables and 30 functions, all named differently.</p>
+<p>A <strong>class</strong> solves this by bundling related data (variables) and behavior (functions) into a single, reusable unit. You define it once and create as many <strong>instances</strong> (copies) as you need.</p>
+</section>
+<section id="defining-a-class-the-simplest-case">
+<h2>5.2 Defining a Class — The Simplest Case<a class="headerlink" href="#defining-a-class-the-simplest-case" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ClassName</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribute1</span> <span class="o">=</span> <span class="n">param1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribute2</span> <span class="o">=</span> <span class="n">param2</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code> — keyword that starts a class definition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ClassName</span></code> — name of the class (use CamelCase: <code class="docutils literal notranslate"><span class="pre">SensorSimulator</span></code>, not <code class="docutils literal notranslate"><span class="pre">sensor_simulator</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> — special method called automatically when you create an object. It sets up the initial state.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code> — refers to the specific object being created. It is always the first parameter of every method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.attribute</span></code> — a variable that belongs to this object (accessible anywhere in the class)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Sensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">humidity</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="c1"># Create an instance (object) of the Sensor class</span>
+<span class="n">my_sensor</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;Living Room&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_sensor</span><span class="o">.</span><span class="n">location</span><span class="p">)</span>     <span class="c1"># Living Room</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span>  <span class="c1"># 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">)</span>     <span class="c1"># 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-methods">
+<h2>5.3 Adding Methods<a class="headerlink" href="#adding-methods" title="Link to this heading">#</a></h2>
+<p>A <strong>method</strong> is a function that belongs to a class. It always has <code class="docutils literal notranslate"><span class="pre">self</span></code> as its first parameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Sensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">humidity</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_reading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">38</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">humidity</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_reading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">location</span><span class="si">}</span><span class="s2">] Temp: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature</span><span class="si">}</span><span class="s2">°C  Humidity: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">humidity</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;Bedroom&quot;</span><span class="p">)</span>
+<span class="n">sensor</span><span class="o">.</span><span class="n">generate_reading</span><span class="p">()</span>  <span class="c1"># updates temperature and humidity</span>
+<span class="n">sensor</span><span class="o">.</span><span class="n">print_reading</span><span class="p">()</span>     <span class="c1"># prints the current values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Call <code class="docutils literal notranslate"><span class="pre">generate_reading()</span></code> again and watch the values change:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">generate_reading</span><span class="p">()</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">print_reading</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-instances">
+<h2>5.4 Multiple Instances<a class="headerlink" href="#multiple-instances" title="Link to this heading">#</a></h2>
+<p>One class definition, many objects — each with its own data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sensor_bedroom</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;Bedroom&quot;</span><span class="p">)</span>
+<span class="n">sensor_kitchen</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;Kitchen&quot;</span><span class="p">)</span>
+<span class="n">sensor_office</span>  <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;Office&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">sensor</span> <span class="ow">in</span> <span class="p">[</span><span class="n">sensor_bedroom</span><span class="p">,</span> <span class="n">sensor_kitchen</span><span class="p">,</span> <span class="n">sensor_office</span><span class="p">]:</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">generate_reading</span><span class="p">()</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">print_reading</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each sensor has independent data. Changing one does not affect the others.</p>
+</section>
+<section id="storing-state-across-method-calls">
+<h2>5.5 Storing State Across Method Calls<a class="headerlink" href="#storing-state-across-method-calls" title="Link to this heading">#</a></h2>
+<p>A key power of classes is that <code class="docutils literal notranslate"><span class="pre">self</span></code> attributes persist between method calls. This is how <code class="docutils literal notranslate"><span class="pre">DataLogger</span></code> accumulates records over time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">EnergyTracker</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_energy</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">record_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">energy_used</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_energy</span> <span class="o">+=</span> <span class="n">energy_used</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_energy</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cycles: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total energy: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_energy</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> kWh&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average per cycle: </span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> kWh&quot;</span><span class="p">)</span>
+
+
+<span class="n">tracker</span> <span class="o">=</span> <span class="n">EnergyTracker</span><span class="p">()</span>
+<span class="n">tracker</span><span class="o">.</span><span class="n">record_cycle</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="n">tracker</span><span class="o">.</span><span class="n">record_cycle</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>    <span class="c1"># AC was off</span>
+<span class="n">tracker</span><span class="o">.</span><span class="n">record_cycle</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="n">tracker</span><span class="o">.</span><span class="n">record_cycle</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="n">tracker</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-realistic-mini-project">
+<h2>5.6 A Realistic Mini-Project<a class="headerlink" href="#a-realistic-mini-project" title="Link to this heading">#</a></h2>
+<p>Now build three classes that work together — just like the real project:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SensorSimulator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates simulated sensor readings.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">humidity</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_occupied</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">38</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">humidity</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_occupied</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DecisionEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decides whether AC should be on based on sensor data.&quot;&quot;&quot;</span>
+
+    <span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mi">30</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ac_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">is_occupied</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_occupied</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ac_on</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">THRESHOLD</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ac_on</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ac_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EnergyCalculator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates and tracks energy consumption.&quot;&quot;&quot;</span>
+
+    <span class="n">AC_POWER_KW</span> <span class="o">=</span> <span class="mf">1.5</span>
+    <span class="n">CYCLE_HOURS</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">60</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_energy</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ac_on</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ac_on</span><span class="p">:</span>
+            <span class="n">energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">AC_POWER_KW</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CYCLE_HOURS</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">total_energy</span> <span class="o">+=</span> <span class="n">energy</span>
+            <span class="k">return</span> <span class="n">energy</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+
+<span class="c1"># Wire them together</span>
+<span class="n">sensor</span>     <span class="o">=</span> <span class="n">SensorSimulator</span><span class="p">()</span>
+<span class="n">engine</span>     <span class="o">=</span> <span class="n">DecisionEngine</span><span class="p">()</span>
+<span class="n">calculator</span> <span class="o">=</span> <span class="n">EnergyCalculator</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Cycle&#39;</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Temp&#39;</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Occupied&#39;</span><span class="si">:</span><span class="s2">&gt;9</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;AC&#39;</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Energy&#39;</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="n">sensor</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">,</span> <span class="n">sensor</span><span class="o">.</span><span class="n">is_occupied</span><span class="p">)</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">ac_on</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cycle</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2">°C </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">is_occupied</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;9</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">ac_on</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">energy</span><span class="si">:</span><span class="s2">&gt;9.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total energy: </span><span class="si">{</span><span class="n">calculator</span><span class="o">.</span><span class="n">total_energy</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> kWh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run this multiple times. Each run simulates a different scenario because the sensor generates random values.</p>
+<p><strong>Notice:</strong> Each class has one job. They do not know about each other — they communicate only through the data passed in. This is the design principle behind the real project.</p>
+</section>
+<section id="reading-the-real-sensorsimulator">
+<h2>5.7 Reading the Real SensorSimulator<a class="headerlink" href="#reading-the-real-sensorsimulator" title="Link to this heading">#</a></h2>
+<p>Now open <code class="docutils literal notranslate"><span class="pre">src/sensor.py</span></code>. You will see the real <code class="docutils literal notranslate"><span class="pre">SensorSimulator</span></code> class. Compare it to the simplified version above:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> sets up the same attributes: temperature, humidity, occupancy</p></li>
+<li><p>The generate method uses <code class="docutils literal notranslate"><span class="pre">random</span></code> just like yours</p></li>
+<li><p>It reads constants from <code class="docutils literal notranslate"><span class="pre">config.py</span></code> instead of hardcoding values — that is the only real difference</p></li>
+</ul>
+<p>You have already built and understood the core of this class.</p>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p><strong>Exercise 1:</strong> Write a <code class="docutils literal notranslate"><span class="pre">DataLogger</span></code> class with:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> that creates an empty list called <code class="docutils literal notranslate"><span class="pre">records</span></code></p></li>
+<li><p>A method <code class="docutils literal notranslate"><span class="pre">log(temperature,</span> <span class="pre">ac_on,</span> <span class="pre">energy)</span></code> that appends a dictionary to <code class="docutils literal notranslate"><span class="pre">records</span></code></p></li>
+<li><p>A method <code class="docutils literal notranslate"><span class="pre">show_all()</span></code> that prints every record</p></li>
+</ul>
+<p>Call it 5 times with different values and then call <code class="docutils literal notranslate"><span class="pre">show_all()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Add a method <code class="docutils literal notranslate"><span class="pre">average_temperature()</span></code> to your <code class="docutils literal notranslate"><span class="pre">DataLogger</span></code> that calculates and returns the average temperature across all logged records.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Wire all four classes together: <code class="docutils literal notranslate"><span class="pre">SensorSimulator</span></code>, <code class="docutils literal notranslate"><span class="pre">DecisionEngine</span></code>, <code class="docutils literal notranslate"><span class="pre">EnergyCalculator</span></code>, and your <code class="docutils literal notranslate"><span class="pre">DataLogger</span></code>. Run a 10-cycle simulation and at the end print the average temperature and total energy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Chapter 5 complete — and Part 1 is done.</strong></p>
+<p>You now know everything needed to read every Python file in the project.</p>
+<p>Move on to Chapter 6 — Project Walkthrough.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_04_Functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 4 — Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_06_Project_Walkthrough.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 6 — Project Walkthrough</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-classes">5.1 Why Classes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-class-the-simplest-case">5.2 Defining a Class — The Simplest Case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-methods">5.3 Adding Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-instances">5.4 Multiple Instances</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-state-across-method-calls">5.5 Storing State Across Method Calls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-realistic-mini-project">5.6 A Realistic Mini-Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-real-sensorsimulator">5.7 Reading the Real SensorSimulator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emertxe Information Technologies
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 8 — Experiments &#8212; Learn Python for Smart Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_08_Experiments';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Chapter 7 — The Dashboard" href="Chapter_07_The_Dashboard.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Learn Python for Smart Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01_Setup_and_First_Program.html">1. Setup &amp; First Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02_Variables_and_Data_Types.html">2. Variables &amp; Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03_Conditions_and_Loops.html">3. Conditions &amp; Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04_Functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05_Classes_and_Objects.html">5. Classes &amp; Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_06_Project_Walkthrough.html">6. Project Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07_The_Dashboard.html">7. The Dashboard</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Experiments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Chapter_08_Experiments.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 8 — Experiments</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-1-change-the-temperature-threshold">Experiment 1 — Change the Temperature Threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-2-make-the-room-always-occupied">Experiment 2 — Make the Room Always Occupied</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-add-a-new-field-to-the-record">Experiment 3 — Add a New Field to the Record</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-4-add-a-new-metric-to-the-dashboard">Experiment 4 — Add a New Metric to the Dashboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-5-open-ended-your-own-change">Experiment 5 — Open-Ended: Your Own Change</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#you-are-done">You Are Done</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-8-experiments">
+<h1>Chapter 8 — Experiments<a class="headerlink" href="#chapter-8-experiments" title="Link to this heading">#</a></h1>
+<p><strong>Time:</strong> ~1 hour<br />
+<strong>Goal:</strong> Modify the project yourself. Each experiment touches a different layer of the system.</p>
+<hr class="docutils" />
+<p>This chapter has no new concepts. It is entirely hands-on. Each experiment tells you exactly what to change and asks you to observe and explain the result.</p>
+<p>Work on the actual project files — not this notebook.</p>
+<hr class="docutils" />
+<section id="experiment-1-change-the-temperature-threshold">
+<h2>Experiment 1 — Change the Temperature Threshold<a class="headerlink" href="#experiment-1-change-the-temperature-threshold" title="Link to this heading">#</a></h2>
+<p><strong>File to edit:</strong> <code class="docutils literal notranslate"><span class="pre">src/config.py</span></code><br />
+<strong>Change:</strong> Set <code class="docutils literal notranslate"><span class="pre">DEFAULT_THRESHOLD</span> <span class="pre">=</span> <span class="pre">22.0</span></code></p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">src/config.py</span></code> and change the value</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">src/main.py</span></code></p></li>
+<li><p>Watch the output for 10–15 cycles</p></li>
+</ol>
+<p><strong>Answer these questions:</strong></p>
+<ol class="arabic simple">
+<li><p>Is the AC ON more often or less often compared to the default threshold of 26°C? Why?</p></li>
+</ol>
+<p><em>Your answer:</em></p>
+<ol class="arabic simple" start="2">
+<li><p>What are the exact upper and lower hysteresis bounds with the new threshold and the default buffer of 1.5°C?</p></li>
+</ol>
+<p><em>Your answer:</em></p>
+<ol class="arabic simple" start="3">
+<li><p>How does the total energy at the end of 20 cycles compare to the default? More or less? Why?</p></li>
+</ol>
+<p><em>Your answer:</em></p>
+<p><strong>Reset:</strong> Change <code class="docutils literal notranslate"><span class="pre">DEFAULT_THRESHOLD</span></code> back to <code class="docutils literal notranslate"><span class="pre">26.0</span></code> before the next experiment.</p>
+</section>
+<hr class="docutils" />
+<section id="experiment-2-make-the-room-always-occupied">
+<h2>Experiment 2 — Make the Room Always Occupied<a class="headerlink" href="#experiment-2-make-the-room-always-occupied" title="Link to this heading">#</a></h2>
+<p><strong>File to edit:</strong> <code class="docutils literal notranslate"><span class="pre">src/sensor.py</span></code><br />
+<strong>Change:</strong> In <code class="docutils literal notranslate"><span class="pre">get_data()</span></code>, replace the occupancy line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Original:</span>
+<span class="s2">&quot;occupancy&quot;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">30</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+
+<span class="c1"># Change to:</span>
+<span class="s2">&quot;occupancy&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</pre></div>
+</div>
+<p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Make the change</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">src/main.py</span></code> for 20 cycles</p></li>
+<li><p>Observe the AC column</p></li>
+</ol>
+<p><strong>Answer these questions:</strong></p>
+<ol class="arabic simple">
+<li><p>Does Rule 1 (“Room is unoccupied → AC OFF”) ever trigger now? Why or why not?</p></li>
+</ol>
+<p><em>Your answer:</em></p>
+<ol class="arabic simple" start="2">
+<li><p>Is total energy consumption higher than before? Explain the reason.</p></li>
+</ol>
+<p><em>Your answer:</em></p>
+<p><strong>Reset:</strong> Revert <code class="docutils literal notranslate"><span class="pre">sensor.py</span></code> to <code class="docutils literal notranslate"><span class="pre">random.choices([1,</span> <span class="pre">0],</span> <span class="pre">weights=[70,</span> <span class="pre">30])[0]</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="experiment-3-add-a-new-field-to-the-record">
+<h2>Experiment 3 — Add a New Field to the Record<a class="headerlink" href="#experiment-3-add-a-new-field-to-the-record" title="Link to this heading">#</a></h2>
+<p>This experiment adds a <code class="docutils literal notranslate"><span class="pre">&quot;reason&quot;</span></code> field to the terminal output. Currently <code class="docutils literal notranslate"><span class="pre">main.py</span></code> does not print the reason why the AC turned on or off — only the dashboard does. Let’s fix that.</p>
+<p><strong>File to edit:</strong> <code class="docutils literal notranslate"><span class="pre">src/main.py</span></code></p>
+<p><strong>Step 1:</strong> In the <code class="docutils literal notranslate"><span class="pre">record</span></code> dictionary inside <code class="docutils literal notranslate"><span class="pre">main()</span></code>, add a new key:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">record</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span>         <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span>       <span class="n">data</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;humidity&quot;</span><span class="p">:</span>          <span class="n">data</span><span class="p">[</span><span class="s2">&quot;humidity&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;occupancy&quot;</span><span class="p">:</span>         <span class="n">data</span><span class="p">[</span><span class="s2">&quot;occupancy&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;hour&quot;</span><span class="p">:</span>              <span class="n">data</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ac_state&quot;</span><span class="p">:</span>          <span class="n">ac_state</span><span class="p">,</span>
+    <span class="s2">&quot;cycle_energy&quot;</span><span class="p">:</span>      <span class="n">cycle_energy</span><span class="p">,</span>
+    <span class="s2">&quot;cumulative_energy&quot;</span><span class="p">:</span> <span class="n">calculator</span><span class="o">.</span><span class="n">get_cumulative</span><span class="p">(),</span>
+    <span class="s2">&quot;reason&quot;</span><span class="p">:</span>            <span class="n">engine</span><span class="o">.</span><span class="n">last_reason</span><span class="p">,</span>    <span class="c1"># ← add this line</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Step 2:</strong> Below the existing <code class="docutils literal notranslate"><span class="pre">print(...)</span></code> statement, add:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  → </span><span class="si">{</span><span class="n">record</span><span class="p">[</span><span class="s1">&#39;reason&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Step 3:</strong> Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">src/main.py</span></code> and verify the reason prints under each cycle.</p>
+<p><strong>Answer this question:</strong></p>
+<p>Paste 3 lines of the new output here. Does the reason always match the AC state shown in the same line?</p>
+<p><em>Your answer:</em></p>
+</section>
+<hr class="docutils" />
+<section id="experiment-4-add-a-new-metric-to-the-dashboard">
+<h2>Experiment 4 — Add a New Metric to the Dashboard<a class="headerlink" href="#experiment-4-add-a-new-metric-to-the-dashboard" title="Link to this heading">#</a></h2>
+<p>Add a metric that shows the current <strong>hour of day</strong> on the dashboard.</p>
+<p><strong>File to edit:</strong> <code class="docutils literal notranslate"><span class="pre">src/dashboard.py</span></code><br />
+<strong>Function to edit:</strong> <code class="docutils literal notranslate"><span class="pre">render_dashboard()</span></code></p>
+<p>Find the line with four columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span><span class="p">,</span> <span class="n">col4</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Change it to five columns and add a fifth metric:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span><span class="p">,</span> <span class="n">col4</span><span class="p">,</span> <span class="n">col5</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">col1</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="s2">&quot;Temperature (°C)&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">latest</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">col2</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="s2">&quot;Humidity (%)&quot;</span><span class="p">,</span>     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">latest</span><span class="p">[</span><span class="s1">&#39;humidity&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">col3</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="s2">&quot;Occupancy&quot;</span><span class="p">,</span>        <span class="s2">&quot;Occupied&quot;</span> <span class="k">if</span> <span class="n">latest</span><span class="p">[</span><span class="s2">&quot;occupancy&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;Empty&quot;</span><span class="p">)</span>
+<span class="n">col5</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="s2">&quot;Hour&quot;</span><span class="p">,</span>             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">latest</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">:00&quot;</span><span class="p">)</span>   <span class="c1"># ← new</span>
+</pre></div>
+</div>
+<p>Run the dashboard and verify the new metric appears.</p>
+<p><strong>Answer this question:</strong></p>
+<p>Why might showing the hour be useful on this dashboard? Hint: look at <code class="docutils literal notranslate"><span class="pre">engine.py</span></code> Rule 2.</p>
+<p><em>Your answer:</em></p>
+</section>
+<hr class="docutils" />
+<section id="experiment-5-open-ended-your-own-change">
+<h2>Experiment 5 — Open-Ended: Your Own Change<a class="headerlink" href="#experiment-5-open-ended-your-own-change" title="Link to this heading">#</a></h2>
+<p>Design and implement one change of your own. It must:</p>
+<ul class="simple">
+<li><p>Touch at least one <code class="docutils literal notranslate"><span class="pre">.py</span></code> file in <code class="docutils literal notranslate"><span class="pre">src/</span></code></p></li>
+<li><p>Change observable behaviour (something visible in the terminal or dashboard output)</p></li>
+<li><p>Not break the existing functionality</p></li>
+</ul>
+<p>Ideas if you are unsure where to start:</p>
+<ul class="simple">
+<li><p>Add a “Fan” device that turns on when temperature is between 24°C and 27.5°C (modify <code class="docutils literal notranslate"><span class="pre">engine.py</span></code> and <code class="docutils literal notranslate"><span class="pre">calculator.py</span></code>)</p></li>
+<li><p>Add a cycle counter to <code class="docutils literal notranslate"><span class="pre">DataLogger</span></code> and display it in the terminal</p></li>
+<li><p>Change occupancy weights from 70/30 to 50/50 and observe the energy impact</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">&quot;high_temp_alert&quot;</span></code> field to the record (<code class="docutils literal notranslate"><span class="pre">True</span></code> if temperature &gt; 35°C)</p></li>
+</ul>
+<p><strong>Describe your change:</strong></p>
+<ol class="arabic simple">
+<li><p>What did you change and in which file?</p></li>
+</ol>
+<p><em>Your answer:</em></p>
+<ol class="arabic simple" start="2">
+<li><p>What does it do?</p></li>
+</ol>
+<p><em>Your answer:</em></p>
+<ol class="arabic simple" start="3">
+<li><p>Paste the code you added or changed:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paste your changed code here (for reference — do not run it here)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="you-are-done">
+<h2>You Are Done<a class="headerlink" href="#you-are-done" title="Link to this heading">#</a></h2>
+<p>You have:</p>
+<ul class="simple">
+<li><p>Learned Python from scratch: variables, conditions, loops, functions, classes</p></li>
+<li><p>Read and understood a real multi-file Python project</p></li>
+<li><p>Run both the terminal simulation and the Streamlit dashboard</p></li>
+<li><p>Modified the project at four different levels: config, sensor, engine, and dashboard</p></li>
+</ul>
+<p><strong>Cheat sheet</strong> for future reference: see <code class="docutils literal notranslate"><span class="pre">cheatsheet.md</span></code> in the root of this tutorial.</p>
+<p><strong>What to explore next:</strong></p>
+<ul class="simple">
+<li><p>Try adding a second room to the simulation</p></li>
+<li><p>Learn about Python lists and dictionaries in more depth</p></li>
+<li><p>Explore the Streamlit documentation: <a class="reference external" href="https://docs.streamlit.io">https://docs.streamlit.io</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_07_The_Dashboard.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 7 — The Dashboard</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-1-change-the-temperature-threshold">Experiment 1 — Change the Temperature Threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-2-make-the-room-always-occupied">Experiment 2 — Make the Room Always Occupied</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-3-add-a-new-field-to-the-record">Experiment 3 — Add a New Field to the Record</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-4-add-a-new-metric-to-the-dashboard">Experiment 4 — Add a New Metric to the Dashboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-5-open-ended-your-own-change">Experiment 5 — Open-Ended: Your Own Change</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#you-are-done">You Are Done</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emertxe Information Technologies
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

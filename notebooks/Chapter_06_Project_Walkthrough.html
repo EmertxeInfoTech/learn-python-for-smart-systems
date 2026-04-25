@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 6 — Project Walkthrough &#8212; Learn Python for Smart Systems</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/Chapter_06_Project_Walkthrough';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 7 — The Dashboard" href="Chapter_07_The_Dashboard.html" />
+    <link rel="prev" title="Chapter 5 — Classes &amp; Objects" href="Chapter_05_Classes_and_Objects.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Learn Python for Smart Systems</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter_01_Setup_and_First_Program.html">1. Setup &amp; First Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_02_Variables_and_Data_Types.html">2. Variables &amp; Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_03_Conditions_and_Loops.html">3. Conditions &amp; Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_04_Functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_05_Classes_and_Objects.html">5. Classes &amp; Objects</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Project Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_07_The_Dashboard.html">7. The Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter_08_Experiments.html">8. Experiments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/Chapter_06_Project_Walkthrough.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 6 — Project Walkthrough</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-start">Before You Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pipeline">6.1 The Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-py-all-constants-in-one-place">6.2 config.py — All Constants in One Place</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensor-py-sensorsimulator">6.3 sensor.py — SensorSimulator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">What is a Dictionary?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engine-py-decisionengine">6.4 engine.py — DecisionEngine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculator-py-energycalculator">6.5 calculator.py — EnergyCalculator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logger-py-datalogger">6.6 logger.py — DataLogger</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py-how-everything-connects">6.7 main.py — How Everything Connects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-terminal-simulation">6.8 Run the Terminal Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-project-walkthrough">
+<h1>Chapter 6 — Project Walkthrough<a class="headerlink" href="#chapter-6-project-walkthrough" title="Link to this heading">#</a></h1>
+<p><strong>Time:</strong> ~1 hour<br />
+<strong>Goal:</strong> Read and understand every file in the Smart Energy Optimization System. Map what you learned in Part 1 to real code.</p>
+<hr class="docutils" />
+<section id="before-you-start">
+<h2>Before You Start<a class="headerlink" href="#before-you-start" title="Link to this heading">#</a></h2>
+<p>Make sure you have the project on your machine. Open the project folder in VS Code alongside this notebook.</p>
+<p>The project structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>smart-energy-optimization-system/
+└── src/
+    ├── config.py      ← Constants (Chapter 2)
+    ├── sensor.py      ← SensorSimulator class (Chapter 5)
+    ├── engine.py      ← DecisionEngine class (Chapter 3 + 5)
+    ├── calculator.py  ← EnergyCalculator class (Chapter 4 + 5)
+    ├── logger.py      ← DataLogger class (Chapter 5)
+    ├── main.py        ← Wires everything together (Chapter 4)
+    └── dashboard.py   ← Streamlit UI (Chapter 7)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="the-pipeline">
+<h2>6.1 The Pipeline<a class="headerlink" href="#the-pipeline" title="Link to this heading">#</a></h2>
+<p>Before reading any file, understand how data flows through the system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SensorSimulator
+    ↓  get_data()  →  {temperature, humidity, occupancy, hour}
+DecisionEngine
+    ↓  evaluate()  →  ac_state (True / False)
+EnergyCalculator
+    ↓  compute()   →  cycle_energy (float)
+DataLogger
+    ↓  store()     →  record saved in memory
+Dashboard / Terminal
+       displays the record
+</pre></div>
+</div>
+<p>Each class does one job and passes its output to the next. Nothing does more than its job.</p>
+</section>
+<section id="config-py-all-constants-in-one-place">
+<h2>6.2 <a class="reference external" href="http://config.py">config.py</a> — All Constants in One Place<a class="headerlink" href="#config-py-all-constants-in-one-place" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">src/config.py</span></code>. Every value here is a variable (Chapter 2) that configures the entire system.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TEMP_MIN</span>       <span class="o">=</span> <span class="mf">18.0</span>
+<span class="n">TEMP_MAX</span>       <span class="o">=</span> <span class="mf">40.0</span>
+<span class="n">TEMP_INIT</span>      <span class="o">=</span> <span class="mf">28.0</span>
+
+<span class="n">DEFAULT_THRESHOLD</span> <span class="o">=</span> <span class="mf">26.0</span>
+<span class="n">DEFAULT_BUFFER</span>    <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">RATE_ON</span>  <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">RATE_OFF</span> <span class="o">=</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+<p><strong>Why a separate file for constants?</strong><br />
+Every other file imports from here. If you want to change the temperature threshold, you change it in one place — <code class="docutils literal notranslate"><span class="pre">config.py</span></code> — and the effect propagates everywhere automatically. You never have to search through 7 files to find where <code class="docutils literal notranslate"><span class="pre">26.0</span></code> is hardcoded.</p>
+<p><strong>What <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">config</span> <span class="pre">import</span> <span class="pre">...</span></code> means:</strong><br />
+Each file starts with lines like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">config</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_THRESHOLD</span><span class="p">,</span> <span class="n">DEFAULT_BUFFER</span>
+</pre></div>
+</div>
+<p>This makes those constants available inside that file. You will see this pattern in every source file.</p>
+</section>
+<section id="sensor-py-sensorsimulator">
+<h2>6.3 <a class="reference external" href="http://sensor.py">sensor.py</a> — SensorSimulator<a class="headerlink" href="#sensor-py-sensorsimulator" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">src/sensor.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SensorSimulator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_temp</span> <span class="o">=</span> <span class="n">TEMP_INIT</span>      <span class="c1"># starts at 28.0°C</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_clamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_val</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_val</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_next_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ac_state</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ac_state</span><span class="p">:</span>
+            <span class="n">drift</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">DRIFT_AC_ON_MIN</span><span class="p">,</span> <span class="n">DRIFT_AC_ON_MAX</span><span class="p">)</span>   <span class="c1"># cooling</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">drift</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">DRIFT_AC_OFF_MIN</span><span class="p">,</span> <span class="n">DRIFT_AC_OFF_MAX</span><span class="p">)</span> <span class="c1"># heating</span>
+        <span class="n">new_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clamp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last_temp</span> <span class="o">+</span> <span class="n">drift</span><span class="p">,</span> <span class="n">TEMP_MIN</span><span class="p">,</span> <span class="n">TEMP_MAX</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_temp</span> <span class="o">=</span> <span class="n">new_temp</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">new_temp</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ac_state</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_temperature</span><span class="p">(</span><span class="n">ac_state</span><span class="p">),</span>
+            <span class="s2">&quot;humidity&quot;</span><span class="p">:</span>    <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">HUMIDITY_MIN</span><span class="p">,</span> <span class="n">HUMIDITY_MAX</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;occupancy&quot;</span><span class="p">:</span>   <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">30</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&quot;hour&quot;</span><span class="p">:</span>        <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Key observations:</strong></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> stores <code class="docutils literal notranslate"><span class="pre">last_temp</span></code> — this persists across calls so temperature drifts realistically, not randomly jumping</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_clamp</span></code> is a helper — the underscore prefix <code class="docutils literal notranslate"><span class="pre">_</span></code> is a Python convention meaning “this is internal, not meant to be called from outside”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_next_temperature</span></code> implements a feedback loop: if AC was ON last cycle, room tends to cool; if OFF, it tends to heat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_data</span></code> returns a <strong>dictionary</strong> — a data structure that stores key-value pairs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">occupancy</span></code> uses <code class="docutils literal notranslate"><span class="pre">weights=[70,</span> <span class="pre">30]</span></code> — room is occupied 70% of the time, empty 30%</p></li>
+</ol>
+<section id="what-is-a-dictionary">
+<h3>What is a Dictionary?<a class="headerlink" href="#what-is-a-dictionary" title="Link to this heading">#</a></h3>
+<p>A dictionary stores data as <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs, like a real dictionary stores <code class="docutils literal notranslate"><span class="pre">word:</span> <span class="pre">definition</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a dictionary</span>
+<span class="n">sensor_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">29.5</span><span class="p">,</span>
+    <span class="s2">&quot;humidity&quot;</span><span class="p">:</span>    <span class="mf">68.2</span><span class="p">,</span>
+    <span class="s2">&quot;occupancy&quot;</span><span class="p">:</span>   <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;hour&quot;</span><span class="p">:</span>        <span class="mi">14</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Accessing values by key</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">])</span>   <span class="c1"># 29.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">[</span><span class="s2">&quot;occupancy&quot;</span><span class="p">])</span>     <span class="c1"># 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="engine-py-decisionengine">
+<h2>6.4 <a class="reference external" href="http://engine.py">engine.py</a> — DecisionEngine<a class="headerlink" href="#engine-py-decisionengine" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">src/engine.py</span></code>.</p>
+<p>This class applies 5 rules in priority order to decide whether AC should be ON or OFF:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DecisionEngine</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ac_state</span>    <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_reason</span> <span class="o">=</span> <span class="s2">&quot;Simulation starting...&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">26.0</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="n">temp</span>      <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">]</span>
+        <span class="n">occupancy</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;occupancy&quot;</span><span class="p">]</span>
+        <span class="n">hour</span>      <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">]</span>
+        <span class="n">upper</span>     <span class="o">=</span> <span class="n">threshold</span> <span class="o">+</span> <span class="n">buffer</span>   <span class="c1"># 27.5</span>
+        <span class="n">lower</span>     <span class="o">=</span> <span class="n">threshold</span> <span class="o">-</span> <span class="n">buffer</span>   <span class="c1"># 24.5</span>
+
+        <span class="k">if</span> <span class="n">occupancy</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>              <span class="c1"># Rule 1: empty room → OFF</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ac_state</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="p">(</span><span class="n">op_start</span> <span class="o">&lt;=</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="n">op_end</span><span class="p">):</span>  <span class="c1"># Rule 2: wrong time → OFF</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ac_state</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">temp</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">:</span>              <span class="c1"># Rule 3: too hot → ON</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ac_state</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">temp</span> <span class="o">&lt;</span> <span class="n">lower</span><span class="p">:</span>              <span class="c1"># Rule 4: cool enough → OFF</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ac_state</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># Rule 5: in the band → hold current state (no change)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ac_state</span>
+</pre></div>
+</div>
+<p><strong>Key concept — Hysteresis:</strong><br />
+Instead of a single threshold (AC ON above 26°C, OFF below 26°C), the engine uses a band:</p>
+<ul class="simple">
+<li><p>AC turns ON when temperature exceeds <strong>27.5°C</strong> (upper = threshold + buffer)</p></li>
+<li><p>AC turns OFF when temperature falls below <strong>24.5°C</strong> (lower = threshold − buffer)</p></li>
+<li><p>Between 24.5°C and 27.5°C → hold current state</p></li>
+</ul>
+<p>This prevents rapid on/off switching when temperature hovers near the threshold. It is the same principle used in real thermostats.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">last_reason</span></code></strong> stores a human-readable explanation of why the last decision was made. The dashboard displays this.</p>
+</section>
+<section id="calculator-py-energycalculator">
+<h2>6.5 <a class="reference external" href="http://calculator.py">calculator.py</a> — EnergyCalculator<a class="headerlink" href="#calculator-py-energycalculator" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">src/calculator.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">EnergyCalculator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cumulative</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate_on</span>    <span class="o">=</span> <span class="n">RATE_ON</span>    <span class="c1"># 2.0 units per cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate_off</span>   <span class="o">=</span> <span class="n">RATE_OFF</span>   <span class="c1"># 0.1 units per cycle (standby power)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ac_state</span><span class="p">):</span>
+        <span class="n">cycle_energy</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_on</span> <span class="k">if</span> <span class="n">ac_state</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_off</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cumulative</span> <span class="o">+=</span> <span class="n">cycle_energy</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">cycle_energy</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_cumulative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cumulative</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cumulative</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p><strong>Key observations:</strong></p>
+<ol class="arabic simple">
+<li><p>Even when AC is OFF, <code class="docutils literal notranslate"><span class="pre">RATE_OFF</span> <span class="pre">=</span> <span class="pre">0.1</span></code> is consumed — this models standby/idle power draw</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.cumulative</span></code> accumulates across the entire simulation — this is stored state (Chapter 5.5)</p></li>
+<li><p>The expression <code class="docutils literal notranslate"><span class="pre">self.rate_on</span> <span class="pre">if</span> <span class="pre">ac_state</span> <span class="pre">else</span> <span class="pre">self.rate_off</span></code> is a <strong>ternary expression</strong> — a compact if/else in one line</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ternary expression — same as if/else in one line</span>
+<span class="n">ac_state</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># This:</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="k">if</span> <span class="n">ac_state</span> <span class="k">else</span> <span class="mf">0.1</span>
+
+<span class="c1"># Is exactly the same as:</span>
+<span class="k">if</span> <span class="n">ac_state</span><span class="p">:</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logger-py-datalogger">
+<h2>6.6 <a class="reference external" href="http://logger.py">logger.py</a> — DataLogger<a class="headerlink" href="#logger-py-datalogger" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">src/logger.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DataLogger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># empty list</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>   <span class="c1"># add one record to the list</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_latest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>  <span class="c1"># return last n records</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">records</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the simplest class in the project. A list (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) that grows with every cycle. The dashboard reads from it using <code class="docutils literal notranslate"><span class="pre">get_latest()</span></code>.</p>
+</section>
+<section id="main-py-how-everything-connects">
+<h2>6.7 <a class="reference external" href="http://main.py">main.py</a> — How Everything Connects<a class="headerlink" href="#main-py-how-everything-connects" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">src/main.py</span></code>. This is the entry point for the terminal runner. Read it alongside this explanation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create one instance of each class</span>
+    <span class="n">simulator</span>  <span class="o">=</span> <span class="n">SensorSimulator</span><span class="p">()</span>
+    <span class="n">engine</span>     <span class="o">=</span> <span class="n">DecisionEngine</span><span class="p">()</span>
+    <span class="n">calculator</span> <span class="o">=</span> <span class="n">EnergyCalculator</span><span class="p">()</span>
+    <span class="n">logger</span>     <span class="o">=</span> <span class="n">DataLogger</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>                              <span class="c1"># run forever</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">ac_state</span><span class="p">)</span>     <span class="c1"># Step 1: sense</span>
+        <span class="n">ac_state</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>          <span class="c1"># Step 2: decide</span>
+        <span class="n">cycle_energy</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">ac_state</span><span class="p">)</span>    <span class="c1"># Step 3: calculate</span>
+
+        <span class="n">record</span> <span class="o">=</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>                     <span class="c1"># Step 4: build a record dict</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>                 <span class="c1"># Step 5: log it</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>                           <span class="c1"># Step 6: display</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">REFRESH_INTERVAL</span><span class="p">)</span>         <span class="c1"># Step 7: wait 2 seconds</span>
+</pre></div>
+</div>
+<p><strong>Note the feedback loop:</strong><br />
+The sensor receives <code class="docutils literal notranslate"><span class="pre">engine.ac_state</span></code> — the current AC state — so it knows to drift temperature up or down in the next cycle. This creates a realistic simulation where AC actually affects temperature.</p>
+</section>
+<section id="run-the-terminal-simulation">
+<h2>6.8 Run the Terminal Simulation<a class="headerlink" href="#run-the-terminal-simulation" title="Link to this heading">#</a></h2>
+<p>Open your terminal. Navigate to the project folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>path/to/smart-energy-optimization-system
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+python3<span class="w"> </span>src/main.py
+</pre></div>
+</div>
+<p>You should see output like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Time                   Temp   Hum  Occ   AC   Cycle    Total
+---------------------------------------------------------------------------
+2024-01-15 14:30:01   29.5°C  68.2%  Yes    ON     2.0      2.0
+2024-01-15 14:30:03   27.8°C  71.0%  Yes    ON     2.0      4.0
+2024-01-15 14:30:05   25.1°C  65.4%  Yes   OFF     0.1      4.1
+</pre></div>
+</div>
+<p>Trace what happens each line:</p>
+<ol class="arabic simple">
+<li><p>Sensor generates temperature/humidity/occupancy</p></li>
+<li><p>Engine evaluates and sets AC state</p></li>
+<li><p>Calculator adds energy for this cycle</p></li>
+<li><p>Logger stores the record</p></li>
+<li><p>One row prints</p></li>
+<li><p>Program waits 2 seconds</p></li>
+</ol>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> to stop.</p>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p><strong>Exercise 1:</strong> In <code class="docutils literal notranslate"><span class="pre">engine.py</span></code>, what are the exact temperature values where AC turns ON and OFF with the default settings (<code class="docutils literal notranslate"><span class="pre">threshold=26.0</span></code>, <code class="docutils literal notranslate"><span class="pre">buffer=1.5</span></code>)? Write the numbers, do not guess.</p>
+<p><em>Your answer here:</em><br />
+AC turns ON when temperature &gt; ___°C<br />
+AC turns OFF when temperature &lt; ___°C</p>
+<p><strong>Exercise 2:</strong> Open <code class="docutils literal notranslate"><span class="pre">config.py</span></code> and change <code class="docutils literal notranslate"><span class="pre">DEFAULT_THRESHOLD</span></code> to <code class="docutils literal notranslate"><span class="pre">28.0</span></code>. Run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> again. Describe what changed in the output and explain why.</p>
+<p><em>Your answer here:</em></p>
+<p><strong>Exercise 3:</strong> In <code class="docutils literal notranslate"><span class="pre">main.py</span></code>, find the line that passes <code class="docutils literal notranslate"><span class="pre">engine.ac_state</span></code> to <code class="docutils literal notranslate"><span class="pre">simulator.get_data()</span></code>. Explain in your own words why this is necessary — what would happen if you always passed <code class="docutils literal notranslate"><span class="pre">False</span></code> instead?</p>
+<p><em>Your answer here:</em></p>
+<hr class="docutils" />
+<p><strong>Chapter 6 complete.</strong> Move on to Chapter 7 — The Dashboard.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_05_Classes_and_Objects.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 5 — Classes &amp; Objects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_07_The_Dashboard.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 7 — The Dashboard</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-start">Before You Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pipeline">6.1 The Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#config-py-all-constants-in-one-place">6.2 config.py — All Constants in One Place</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensor-py-sensorsimulator">6.3 sensor.py — SensorSimulator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dictionary">What is a Dictionary?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engine-py-decisionengine">6.4 engine.py — DecisionEngine</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculator-py-energycalculator">6.5 calculator.py — EnergyCalculator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logger-py-datalogger">6.6 logger.py — DataLogger</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py-how-everything-connects">6.7 main.py — How Everything Connects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-terminal-simulation">6.8 Run the Terminal Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Emertxe Information Technologies
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
